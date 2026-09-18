@@ -100,6 +100,7 @@ namespace EssenceData.code
                     break;
                 }
             }
+            CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis = false;
             if (cardsChosen.Count == numCardsToSelect)
             {
                 InfuseCards(grantParams.coreGameManagers.GetSaveManager());

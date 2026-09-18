@@ -4,9 +4,9 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "Conductor"
 name = "EssenceData"
-versionNumber = "0.1.0"
+versionNumber = "0.1.1"
 description = "Data mod containing Essences for Units. This mod by itself does not surface the mechanic in-game."
-websiteUrl = "https://thunderstore.io"
+websiteUrl = "https://github.com/Monster-Train-2-Modding-Group/EssenceData"
 containsNsfwContent = false
 
 [package.dependencies]
