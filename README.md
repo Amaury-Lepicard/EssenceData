@@ -30,6 +30,3 @@ If you wish to conduct Fusion a RewardData subclass is already defined and setup
 This is done via a dependency on Conductor and defining a map between unit <=> essence upgrade. This is a 1:1 mapping that is an essence upgrade is only associated with one character and one character has only 1 essence.
 
 Examples of how to define an essence are in the `json/essences` folder
-
-## TODOs
-- UI: A Deck Screen button to toggle unit synthesis effects. Currently you can only view the essences via when a fusion happens.
