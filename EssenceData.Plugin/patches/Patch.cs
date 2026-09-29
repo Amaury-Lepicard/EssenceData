@@ -155,9 +155,12 @@ static class UnitEssenceToggle
             // Its own label, not the key hint's text, which the game fills from inputType.
             var label = button.GetComponentsInChildren<TMP_Text>(true).First(text => text.GetComponentInParent<GameUIControlMapping>() == null);
             label.SetLocKey("DeckScreen_ShowEssence");
-            label.fontSizeMax = label.fontSize;
-            label.enableAutoSizing = true;
-            label.margin = new Vector4(0f, 0f, 60f, 0f); // clear of the lozenge
+            // The template auto-sizes between 24 and 40 on one line, shrinking to fit. Both bounds
+            // at 80%: the dialog size fills the button. A long translation breaks itself with a
+            // line feed in localizations.json.
+            label.fontSizeMin *= 0.8f;
+            label.fontSizeMax *= 0.8f;
+            label.margin = new Vector4(8f, 0f, 60f, 0f); // clear of the lozenge
 
             // The settings switch's lozenge, right in the button. Its gem, lit by the switch's own
             // ToggleOnToggleOn, is lit by ShowState here: the copy leaves that behind.

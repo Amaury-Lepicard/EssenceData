@@ -16,7 +16,12 @@
     {
       "key": "DeckScreen_ShowEssence",
       "texts": {
-        "english": "Show Essence"
+        "english": "Toggle Unit Essences",
+        "french": "Activer/désactiver\nles essences des unités",
+        "german": "Einheit-Essenzen\numschalten",
+        "russian": "Переключить\nэссенцию бойцов",
+        "portuguese": "Ativar essências\nde unidade",
+        "chinese": "开启/关闭单位精华"
       }
     }
 
