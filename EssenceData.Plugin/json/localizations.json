@@ -12,6 +12,12 @@
       "texts": {
         "english": "+{0}"
       }
+    },
+    {
+      "key": "DeckScreen_ShowEssence",
+      "texts": {
+        "english": "Show Essence"
+      }
     }
 
   ]
