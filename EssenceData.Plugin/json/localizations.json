@@ -23,6 +23,28 @@
         "portuguese": "Ativar essências\nde unidade",
         "chinese": "开启/关闭单位精华"
       }
+    },
+    {
+      "key": "LogBook_ShowEssence",
+      "texts": {
+        "english": "Toggle Unit Essences",
+        "french": "Activer/désactiver\nles essences des unités",
+        "german": "Einheit-Essenzen umschalten",
+        "russian": "Переключить эссенцию бойцов",
+        "portuguese": "Ativar essências de unidade",
+        "chinese": "开启/关闭单位精华"
+      }
+    },
+    {
+      "key": "EssenceData_Essences",
+      "texts": {
+        "english": "Essences",
+        "french": "Essences",
+        "german": "Essenzen",
+        "russian": "Эссенции",
+        "portuguese": "Essências",
+        "chinese": "精华"
+      }
     }
 
   ]

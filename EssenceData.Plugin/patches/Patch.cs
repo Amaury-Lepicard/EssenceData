@@ -67,11 +67,13 @@ class CardUI_UpdateTextContent_ShowSynthesisEffectPatch
     }
 }
 
-// "Show Essence" switches the card lists between unit card text and unit essences, in the
-// deck screen (deck, piles, upgrade and purge pickers), the card draft screen and the logbook.
-// Bound to the Dragon's Hoard control (H / right stick click by default, as the forge toggle),
-// and so is the button added to each screen: a click arrives as that control too. The button
-// carries the settings screen's switch lozenge, its gem lit while essences show.
+// "Show Essence" toggles every card list between a unit's card text and its essence text. It
+// exists in the deck screen (deck, piles, upgrade and purge pickers), the card draft screen and
+// the logbook. The toggle is bound to the Dragon's Hoard control (H, or right stick click),
+// the same control that toggles the forge. The button added to each screen is bound to that
+// control too, so a click and a key press arrive through the same input path. On the deck and
+// draft screens the button shows a copy of the settings screen's switch, whose gem lights up
+// while essences are shown.
 static class UnitEssenceToggle
 {
     private const string ButtonName = "ToggleUnitEssencesButton";
@@ -79,8 +81,11 @@ static class UnitEssenceToggle
 
     private static void ShowState(Component screen)
     {
+        var on = CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis;
         foreach (var gem in screen.GetComponentsInChildren<Transform>(true).Where(t => t.name == GemName))
-            gem.gameObject.SetActive(CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis);
+            gem.gameObject.SetActive(on);
+        foreach (var option in screen.GetComponentsInChildren<FilterOptionButton>(true).Where(b => b.name == ButtonName))
+            option.SetSelected(on);
     }
 
     private static IEnumerable<MethodBase> Screens(string deck, string draft, string logbook) =>
@@ -97,14 +102,14 @@ static class UnitEssenceToggle
 
         static bool Prefix(MonoBehaviour __instance, InputManager.Controls triggeredMappingID, ref bool __result)
         {
-            // An "h" typed into the logbook's search field is text, not the toggle.
+            // Typing "h" into the logbook's search field must not toggle essences.
             var selected = UnityEngine.EventSystems.EventSystem.current?.currentSelectedGameObject;
             if (triggeredMappingID != InputManager.Controls.DragonsHoard
                 || (selected != null && selected.TryGetComponent<TMP_InputField>(out var field) && field.isFocused))
                 return true;
 
             CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis ^= true;
-            // Null in the logbook, which draws its cards without statistics.
+            // The logbook has no cardStatistics field, so this is null there; UpdateTextContent accepts null.
             var stats = Traverse.Create(__instance).Field<CardStatistics>("cardStatistics").Value;
             foreach (var card in __instance.GetComponentsInChildren<CardUI>())
                 if (card.GetCardState() is { } state)
@@ -120,7 +125,9 @@ static class UnitEssenceToggle
     {
         static IEnumerable<MethodBase> TargetMethods() => Screens("Setup", "Setup", "Open");
 
-        // Also runs when the button exists: the flag was reset on close, or set by a fusion.
+        // Setup/Open run every time the screen is shown while the button object survives, so only
+        // create it the first time. ShowState still runs every time: Close resets the flag, and a
+        // fusion may have turned it on.
         static void Postfix(MonoBehaviour __instance)
         {
             if (!__instance.GetComponentsInChildren<GameUISelectableButton>(true).Any(b => b.name == ButtonName))
@@ -130,40 +137,42 @@ static class UnitEssenceToggle
 
         private static void Create(MonoBehaviour __instance)
         {
-            // A dialog button: the style of the deck and draft screens' own, and the dialog screen
-            // is loaded everywhere, the main menu's logbook included.
+            // The logbook gets a filter row instead of a floating button.
+            if (__instance is CompendiumSectionCards logbook)
+            {
+                CreateFilterRow(Traverse.Create(logbook).Field<FilterToolbar>("filterToolbar").Value);
+                return;
+            }
+
             var template = Traverse.Create(UnityEngine.Object.FindObjectOfType<DialogScreen>(true))
                 .Field("dialogPrefab").Field("button1").GetValue<GameUISelectableButton>();
             if (template == null)
                 return;
-
-            // In the logbook, under the search box of the filter sidebar; elsewhere, top right
-            // under the deck screen's sort dropdown.
-            var logbook = __instance is CompendiumSectionCards;
-            var parent = logbook ? Traverse.Create(__instance).Field<FilterToolbar>("filterToolbar").Value.transform : __instance.transform;
-            var button = UnityEngine.Object.Instantiate(template, parent);
+            var button = UnityEngine.Object.Instantiate(template, __instance.transform);
             button.name = ButtonName;
             Traverse.Create(button).Field("inputType").SetValue((int)new CoreSymbol(nameof(InputManager.Controls.DragonsHoard)).m_value);
 
             var rect = (RectTransform)button.transform;
-            rect.anchorMin = rect.anchorMax = rect.pivot = logbook ? new Vector2(0.5f, 0f) : Vector2.one;
-            rect.anchoredPosition = logbook ? new Vector2(0f, 8f) : new Vector2(-23.5f, -201f);
+            rect.anchorMin = rect.anchorMax = rect.pivot = Vector2.one;
+            rect.anchoredPosition = new Vector2(-23.5f, -201f);
             rect.sizeDelta = new Vector2(255f, 64f);
             if (button.transform.Find("Target Graphic") is RectTransform graphic)
                 graphic.sizeDelta = new Vector2(graphic.sizeDelta.x, 80f); // 104 by default
 
-            // Its own label, not the key hint's text, which the game fills from inputType.
+            // The button has two texts: the key hint, filled by the game from inputType, and the
+            // label. Only the label is ours to set.
             var label = button.GetComponentsInChildren<TMP_Text>(true).First(text => text.GetComponentInParent<GameUIControlMapping>() == null);
             label.SetLocKey("DeckScreen_ShowEssence");
-            // The template auto-sizes between 24 and 40 on one line, shrinking to fit. Both bounds
-            // at 80%: the dialog size fills the button. A long translation breaks itself with a
-            // line feed in localizations.json.
+            // The dialog button's label auto-sizes between 24 and 40 pt on a single line. At full
+            // size it overflows this smaller button, so scale both bounds down. Translations too
+            // long for one line carry an explicit line break in localizations.json.
             label.fontSizeMin *= 0.8f;
             label.fontSizeMax *= 0.8f;
             label.margin = new Vector4(8f, 0f, 60f, 0f); // clear of the lozenge
 
-            // The settings switch's lozenge, right in the button. Its gem, lit by the switch's own
-            // ToggleOnToggleOn, is lit by ShowState here: the copy leaves that behind.
+            // Copy the settings screen's switch handle (the lozenge with a gem) into the right side
+            // of the button. In the settings screen the switch's own component lights the gem; the
+            // copy has no such component, so ShowState toggles the gem object directly.
             var handle = Traverse.Create(UnityEngine.Object.FindObjectOfType<SettingsDialog>(true))
                 .Field("backgroundMuteToggle").Field("handle").GetValue<RectTransform>();
             if (handle == null)
@@ -172,12 +181,73 @@ static class UnitEssenceToggle
             lozenge.anchorMin = lozenge.anchorMax = lozenge.pivot = new Vector2(1f, 0.5f);
             lozenge.anchoredPosition = new Vector2(-20f, 0f);
             lozenge.sizeDelta = new Vector2(56f, 56f);
-            // Nested under the frame image: Find would look only one level down.
+            // The gem is nested under the frame image, so transform.Find (one level only) would miss it.
             lozenge.GetComponentsInChildren<Transform>(true).First(t => t.name == "Image toggle on").name = GemName;
+        }
+
+        // The logbook's filter sidebar gets one more row, between Mastery and Search. It is a copy
+        // of the Cost row (a title above a row of option buttons) reduced to a single wide button,
+        // so it looks like the other filters and the sidebar's layout group positions it with
+        // them. The button is drawn as a selected filter while essences are shown.
+        private static void CreateFilterRow(FilterToolbar toolbar)
+        {
+            var fields = Traverse.Create(toolbar);
+            var cost = fields.Field<OptionsFilterUI>("costFilterUI").Value;
+            var search = fields.Field<SearchFilterUI>("searchFilterUI").Value;
+            var content = (RectTransform)search.transform.parent;
+            var row = UnityEngine.Object.Instantiate(cost.gameObject, content);
+            row.name = "UnitEssencesFilter";
+            row.transform.SetSiblingIndex(search.transform.GetSiblingIndex());
+            // Remove the copied filter component. The toolbar only knows filters through its own
+            // serialized fields, so the copy would never be read, but it would still handle clicks
+            // on our button as a cost filter.
+            UnityEngine.Object.DestroyImmediate(row.GetComponent<OptionsFilterUI>());
+            // Retitle the row. Its title is the only text not inside an option button.
+            row.GetComponentsInChildren<TMP_Text>(true).First(t => t.GetComponentInParent<FilterOptionButton>() == null).SetLocKey("EssenceData_Essences");
+
+            var options = row.GetComponentsInChildren<FilterOptionButton>(true);
+            foreach (var extra in options.Skip(1))
+                UnityEngine.Object.DestroyImmediate(extra.gameObject);
+            var option = options[0];
+            option.name = ButtonName;
+            option.Set(new OptionsFilter.OptionDisplay("LogBook_ShowEssence"));
+            Traverse.Create(option.Button).Field("inputType").SetValue((int)new CoreSymbol(nameof(InputManager.Controls.DragonsHoard)).m_value);
+
+            // The Cost row lays its buttons out in a grid of equal fixed cells. Widen the one
+            // remaining cell to the Mastery dropdown's width (forcing a layout pass first: nothing
+            // has a size yet while the screen opens) and keep one column, so the grid stays as wide
+            // as the sidebar. The button's frame images have point anchors, not stretched ones, so
+            // widen them too.
+            if (option.transform.parent.GetComponent<UnityEngine.UI.GridLayoutGroup>() is { } grid)
+            {
+                UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(content);
+                var dropdown = fields.Field<DropdownFilterUI>("masteryFilterUI").Value.GetComponentInChildren<GameUISelectableDropdown>(true).transform as RectTransform;
+                var widened = (dropdown?.rect.width > 0f ? dropdown.rect.width : grid.cellSize.x * 6f + grid.spacing.x * 5f) - grid.cellSize.x;
+                grid.cellSize += new Vector2(widened, 0f);
+                grid.constraint = UnityEngine.UI.GridLayoutGroup.Constraint.FixedColumnCount;
+                grid.constraintCount = 1;
+                foreach (var child in option.GetComponentsInChildren<RectTransform>(true).Where(r => r != option.transform && r.anchorMin.x == r.anchorMax.x))
+                    child.sizeDelta += new Vector2(widened, 0f);
+            }
+            foreach (var text in option.GetComponentsInChildren<TMP_Text>(true))
+            {
+                text.enableAutoSizing = true;
+                text.fontSizeMax = text.fontSize;
+                text.fontSizeMin = text.fontSize * 0.5f;
+            }
+
+            // The sidebar is laid out for six rows. To fit a seventh when the clan grid
+            // has three rows: tighten the row spacing, move the whole block up into the gap below
+            // the Back button, and move the bottom ornament down. Offsets tuned at 1920x1080.
+            if (content.GetComponent<UnityEngine.UI.VerticalLayoutGroup>() is { } layout)
+                layout.spacing = Mathf.Min(layout.spacing, 4f);
+            content.anchoredPosition += new Vector2(0f, 5f);
+            if (content.Find("Bottom divider") is RectTransform divider)
+                divider.anchoredPosition -= new Vector2(0f, 10f);
         }
     }
 
-    // The flag is global: left on, it would also rewrite cards in hand once the screen closes.
+    // The flag is global. Left on after the screen closes, it would also rewrite the cards in hand.
     [HarmonyPatch]
     static class Reset
     {
