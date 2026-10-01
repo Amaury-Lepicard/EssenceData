@@ -1,0 +1,64 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterGolem",
+      "upgrade": "@MonsterGolemSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterGolemSynthesis",
+      "descriptions": {
+        "english": "[armor] 12 and '[extinguish]: Apply [armor] 12 to friendly units.'",
+        "french": "[armor] 12 et '[extinguish]: Confère [armor] 12 aux unités alliées.'",
+        "german": "[armor] 12 und '[extinguish]: Wende [armor] 12 auf verbündete Einheiten an.'",
+        "russian": "[armor] 12 и '[extinguish]: Союзным бойцам дается [armor] х12.'",
+        "portuguese": "[armor] 12 e '[extinguish]: Concede [armor] 12 às unidades aliadas.'",
+        "chinese": "[armor] 12，'[extinguish]: 使所有友方单位获得 [armor] 12。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "armor",
+          "count": 12
+        }
+      ],
+      "trigger_upgrades": [
+        "@MonsterGolemSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterGolemSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 12
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterGolemSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [armor] [effect0.status0.power] to friendly units.",
+        "french": "Confère [armor] [effect0.status0.power] aux unités alliées.",
+        "german": "Wende [armor] [effect0.status0.power] auf verbündete Einheiten an.",
+        "russian": "Союзным бойцам дается [armor] х[effect0.status0.power].",
+        "portuguese": "Concede [armor] [effect0.status0.power] às unidades aliadas.",
+        "chinese": "使所有友方单位获得 [armor] [effect0.status0.power]。"
+      },
+      "trigger": "on_death",
+      "effects": [
+        "@MonsterGolemSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterLeadSongbird",
+      "upgrade": "@MonsterLeadSongbirdSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterLeadSongbirdSynthesis",
+      "descriptions": {
+        "english": "'[valor] on friendly units adds <nobr>+1[attack]</nobr> per stack.'",
+        "french": "'La [valor] sur les alliés ajoute <nobr>+1[attack]</nobr> par cumul.'",
+        "german": "'[valor] bei verbündeten Einheiten fügt <nobr>+1[attack]</nobr> pro Stapel hinzu.'",
+        "russian": "'[valor] союзников добавляет +1[attack] за слой.'",
+        "portuguese": "'[valor] em unidades aliadas adiciona <nobr>+1[attack]</nobr> por carga.'",
+        "chinese": "'友方单位的 [valor]，每一层额外 <nobr>+1[attack]</nobr>。'"
+      },
+      "room_modifier_upgrades": [
+        "@MonsterLeadSongbirdSynthesis.roomModifierUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "MonsterLeadSongbirdSynthesis.roomModifierUpgrades0",
+      "descriptions": {
+        "english": "[valor] on friendly units adds <nobr>+[power][attack]</nobr> per stack.",
+        "french": "La [valor] sur les alliés ajoute <nobr>+[power][attack]</nobr> par cumul.",
+        "german": "[valor] bei verbündeten Einheiten fügt <nobr>+[power][attack]</nobr> pro Stapel hinzu.",
+        "russian": "[valor] союзников добавляет +[power][attack] за слой.",
+        "portuguese": "[valor] em unidades aliadas adiciona <nobr>+[power][attack]</nobr> por carga.",
+        "chinese": "友方单位的 [valor]，每一层额外 <nobr>+[power][attack]</nobr>。"
+      },
+      "name": "RoomStateValorModifier",
+      "param_int": 1
+    }
+  ]
+}

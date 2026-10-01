@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterPricklyPuffball",
+      "upgrade": "@MonsterPricklyPuffballSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterPricklyPuffballSynthesis",
+      "descriptions": {
+        "english": "'[revenge]: Apply [decay] 5 to the attacker.'",
+        "french": "'[revenge]: Inflige [decay] 5 à l'attaquant.'",
+        "german": "'[revenge]: Wende [decay] 5 auf den Angreifer an.'",
+        "russian": "'[revenge]: Накладывает на атакующего [decay] х5.'",
+        "portuguese": "'[revenge]: Aplica [decay] 5 ao atacante.'",
+        "chinese": "'[revenge]: 对攻击者施加 [decay] 5。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterPricklyPuffballSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterPricklyPuffballSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacker_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "decay",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterPricklyPuffballSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [decay] [effect0.status0.power] to the attacker.",
+        "french": "Inflige [decay] [effect0.status0.power] à l'attaquant.",
+        "german": "Wende [decay] [effect0.status0.power] auf den Angreifer an.",
+        "russian": "Накладывает на атакующего [decay] х[effect0.status0.power].",
+        "portuguese": "Aplica [decay] [effect0.status0.power] ao atacante.",
+        "chinese": "对攻击者施加 [decay] [effect0.status0.power]。"
+      },
+      "trigger": "on_hit",
+      "effects": [
+        "@MonsterPricklyPuffballSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

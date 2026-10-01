@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterAvenger",
+      "upgrade": "@MonsterAvengerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterAvengerSynthesis",
+      "descriptions": {
+        "english": "'[revenge]: Apply [meleeweakness] 1 to the attacker.'",
+        "french": "'[revenge]: Inflige [meleeweakness] 1 à l'attaquant.'",
+        "german": "'[revenge]: Wende [meleeweakness] 1 auf den Angreifer an.'",
+        "russian": "'[revenge]: Накладывает на атакующего [meleeweakness] х1.'",
+        "portuguese": "'[revenge]: Aplica [meleeweakness] 1 ao atacante.'",
+        "chinese": "'[revenge]: 对攻击者施加 [meleeweakness] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterAvengerSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterAvengerSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacker_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "melee weakness",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterAvengerSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [meleeweakness] [effect0.status0.power] to the attacker.",
+        "french": "Inflige [meleeweakness] [effect0.status0.power] à l'attaquant.",
+        "german": "Wende [meleeweakness] [effect0.status0.power] auf den Angreifer an.",
+        "russian": "Накладывает на атакующего [meleeweakness] х[effect0.status0.power].",
+        "portuguese": "Aplica [meleeweakness] [effect0.status0.power] ao atacante.",
+        "chinese": "对攻击者施加 [meleeweakness] [effect0.status0.power]。"
+      },
+      "trigger": "on_hit",
+      "effects": [
+        "@MonsterAvengerSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

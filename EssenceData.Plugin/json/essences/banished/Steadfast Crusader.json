@@ -1,0 +1,25 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSteadfastCrusader",
+      "upgrade": "@MonsterSteadfastCrusaderSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSteadfastCrusaderSynthesis",
+      "descriptions": {
+        "english": "[ability]: <b>Slam</b>.",
+        "french": "[ability]: <b>Ruée</b>.",
+        "german": "[ability]: <b>Schlag</b>.",
+        "russian": "[ability]: <b>Рывок</b>.",
+        "portuguese": "[ability]: <b>Investida</b>.",
+        "chinese": "[ability]: <b>猛击</b>。"
+      },
+      "ability_upgrade": "SlamAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

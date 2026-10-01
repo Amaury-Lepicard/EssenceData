@@ -1,0 +1,77 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterClusterColonel",
+      "upgrade": "@MonsterClusterColonelSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterClusterColonelSynthesis",
+      "descriptions": {
+        "english": "[armor] 10 and '[resolve]: [spawn] 4.'",
+        "french": "[armor] 10 et '[resolve]: <b>Génère</b> 4.'",
+        "german": "[armor] 10 und '[resolve]: [spawn] 4.'",
+        "russian": "[armor] 10 и '[resolve]: [spawn] х4.'",
+        "portuguese": "[armor] 10 e '[resolve]: [spawn] 4.'",
+        "chinese": "[armor] 10，'[resolve]: [spawn] 4。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "armor",
+          "count": 10
+        }
+      ],
+      "trigger_upgrades": [
+        "@MonsterClusterColonelSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterClusterColonelSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectSpawnMonsterOrAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "both",
+      "target_subtype": "SubtypesData_Horde",
+      "param_character": "MonsterFunguy",
+      "param_status_effects": [
+        {
+          "status": "horde",
+          "count": 4
+        }
+      ],
+      "additional_tooltips": [
+        "@MonsterClusterColonelSynthesis.triggerUpgrades0.effects0.additionalTooltips0"
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterClusterColonelSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "[spawn] [effect0.power].",
+        "french": "<b>Génère</b> [effect0.power].",
+        "german": "[spawn] [effect0.power].",
+        "russian": "[spawn] х[effect0.power].",
+        "portuguese": "[spawn] [effect0.power].",
+        "chinese": "[spawn] [effect0.power]。"
+      },
+      "trigger": "post_combat",
+      "effects": [
+        "@MonsterClusterColonelSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterClusterColonelSynthesis.triggerUpgrades0.effects0.additionalTooltips0",
+      "trigger": "card_monster_played",
+      "style": "default",
+      "allow_secondary_placement": true
+    }
+  ]
+}

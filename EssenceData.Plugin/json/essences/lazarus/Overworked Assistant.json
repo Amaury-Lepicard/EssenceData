@@ -1,0 +1,63 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterLowRankedAssistant",
+      "upgrade": "@MonsterLowRankedAssistantSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterLowRankedAssistantSynthesis",
+      "descriptions": {
+        "english": "[undying] 1 and '[incant]: Gain [unstable] 4.'",
+        "french": "[undying] 1 et '[incant]: Octroie [unstable] 4.'",
+        "german": "[undying] 1 und '[incant]: Erhalte [unstable] 4.'",
+        "russian": "[undying] 1 и '[incant]: Дает 4 х[unstable].'",
+        "portuguese": "[undying] 1 e '[incant]: Recebe [unstable] 4.'",
+        "chinese": "[undying] 1，'[incant]: 获得 [unstable] 4。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "undying",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [
+        "@MonsterLowRankedAssistantSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterLowRankedAssistantSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "unstable",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterLowRankedAssistantSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [unstable] [effect0.status0.power].",
+        "french": "Octroie [unstable] [effect0.status0.power].",
+        "german": "Erhalte [unstable] [effect0.status0.power].",
+        "russian": "Дает [effect0.status0.power] х[unstable].",
+        "portuguese": "Recebe [unstable] [effect0.status0.power].",
+        "chinese": "获得 [unstable] [effect0.status0.power]。"
+      },
+      "trigger": "card_spell_played",
+      "effects": [
+        "@MonsterLowRankedAssistantSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

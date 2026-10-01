@@ -1,0 +1,60 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterPincushion",
+      "upgrade": "@MonsterPincushionSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterPincushionSynthesis",
+      "descriptions": {
+        "english": "'[equipped]: +3[attack] and +3[health] permanently.'",
+        "french": "'[equipped]: +3[attack] et +3[health] définitivement.'",
+        "german": "'[equipped]: Permanent +3[attack] und +3[health].'",
+        "russian": "'[equipped]: +3[attack] и +3[health] навсегда.'",
+        "portuguese": "'[equipped]: +3[attack] e +3[health] permanentemente.'",
+        "chinese": "'[equipped]: 永久+3[attack] 和 +3[health]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterPincushionSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterPincushionSynthesis.Pincushion_Upgrade",
+      "bonus_damage": 3,
+      "bonus_hp": 3,
+      "upgrade_will_be_scaled_by_non_magic_power_trait": true
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterPincushionSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterPincushionSynthesis.Pincushion_Upgrade",
+      "param_int_3": 2,
+      "param_bool": true
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterPincushionSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "+[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] permanently.",
+        "french": "+[effect0.upgrade.bonusdamage][attack] et +[effect0.upgrade.bonushp][health] définitivement.",
+        "german": "Permanent +[effect0.upgrade.bonusdamage][attack] und +[effect0.upgrade.bonushp][health].",
+        "russian": "+[effect0.upgrade.bonusdamage][attack] и +[effect0.upgrade.bonushp][health] навсегда.",
+        "portuguese": "+[effect0.upgrade.bonusdamage][attack] e +[effect0.upgrade.bonushp][health] permanentemente.",
+        "chinese": "永久+[effect0.upgrade.bonusdamage][attack] 和 +[effect0.upgrade.bonushp][health]。"
+      },
+      "trigger": "on_equipment_added",
+      "effects": [
+        "@MonsterPincushionSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

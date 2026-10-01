@@ -1,0 +1,25 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterMeathook",
+      "upgrade": "@MonsterMeathookSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterMeathookSynthesis",
+      "descriptions": {
+        "english": "[ability]: <b>Hookhand</b>.",
+        "french": "[ability]: <b>Crochet</b>.",
+        "german": "[ability]: <b>Hakenhand</b>.",
+        "russian": "[ability]: <b>Рука-крюк</b>.",
+        "portuguese": "[ability]: <b>Mão de Gancho</b>.",
+        "chinese": "[ability]: <b>钩手</b>。"
+      },
+      "ability_upgrade": "Meathook_Ability",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

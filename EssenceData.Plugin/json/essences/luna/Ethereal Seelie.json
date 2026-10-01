@@ -1,0 +1,78 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterEtherealSeelie",
+      "upgrade": "@MonsterEtherealSeelieSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterEtherealSeelieSynthesis",
+      "descriptions": {
+        "english": "[conduit] 5 and 'Apply +1 stack of [conduit] each time it is applied.'",
+        "french": "[conduit] 5 et 'Confère +1x [conduit] à chaque application.'",
+        "german": "[conduit] 5 und 'Wende bei jeder Verwendung +1 Stapel [conduit] an.'",
+        "russian": "[conduit] 5 и 'Когда на бойца накладывается [conduit], он получает +1 слоя.'",
+        "portuguese": "[conduit] 5 e 'Concede +1 cargas de [conduit] cada vez que for aplicado.'",
+        "chinese": "[conduit] 5，'每次获得[conduit]时，获得的层数+1。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "conduit",
+          "count": 5
+        }
+      ],
+      "room_modifier_upgrades": [
+        "@MonsterEtherealSeelieSynthesis.roomModifierUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "MonsterEtherealSeelieSynthesis.roomModifierUpgrades0",
+      "descriptions": {
+        "english": "Apply +[power] stack of [conduit] each time it is applied.",
+        "french": "Confère +[power]x [conduit] à chaque application.",
+        "german": "Wende bei jeder Verwendung +[power] Stapel [conduit] an.",
+        "russian": "Когда на бойца накладывается [conduit], он получает +[power] слоя.",
+        "portuguese": "Concede +[power] cargas de [conduit] cada vez que for aplicado.",
+        "chinese": "每次获得[conduit]时，获得的层数+[power]。"
+      },
+      "name": "RoomStateAddStatusEffectOnStatusApplied",
+      "param_status_effects": [
+        {
+          "status": "conduit",
+          "count": 0
+        }
+      ],
+      "additional_tooltips": [
+        "@MonsterEtherealSeelieSynthesis.roomModifierUpgrades0.additionalTooltips0"
+      ],
+      "param_int": 1
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterEtherealSeelieSynthesis.roomModifierUpgrades0.additionalTooltips0",
+      "descriptions": {
+        "english": "Increases the amount of damage dealt and health restored by spells.",
+        "french": "Augmente la quantité de dommages infligés et de PV restaurés par les sorts.",
+        "german": "Erhöht die Menge an zugefügtem Schaden und wiederhergestellter Gesundheit durch Zauber.",
+        "russian": "Увеличивает количество наносимого чарами урона и восстанавливаемого ими здоровья.",
+        "portuguese": "Aumenta a quantidade de dano causado e de vida restaurada por feitiços.",
+        "chinese": "提高法术造成的伤害与恢复的生命值。"
+      },
+      "titles": {
+        "english": "Magic Power",
+        "french": "Puissance magique",
+        "german": "Magische Kraft",
+        "russian": "Сила магии",
+        "portuguese": "Poder Mágico",
+        "chinese": "魔法强度"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterEnthusiasticFan",
+      "upgrade": "@MonsterEnthusiasticFanSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterEnthusiasticFanSynthesis",
+      "descriptions": {
+        "english": "'[summon]: Apply [sap] 3 to enemy units.'",
+        "french": "'[summon]: Inflige [sap] 3 aux unités ennemies.'",
+        "german": "'[summon]: Wende [sap] 3 auf gegnerische Einheiten an.'",
+        "russian": "'[summon]: Накладывает [sap] х3 на всех врагов.'",
+        "portuguese": "'[summon]: Aplica [sap] 3 a todas as unidades inimigas.'",
+        "chinese": "'[summon]: 对所有敌方单位施加 [sap] 3。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterEnthusiasticFanSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterEnthusiasticFanSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "debuff",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterEnthusiasticFanSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [sap] [effect0.status0.power] to enemy units.",
+        "french": "Inflige [sap] [effect0.status0.power] aux unités ennemies.",
+        "german": "Wende [sap] [effect0.status0.power] auf gegnerische Einheiten an.",
+        "russian": "Накладывает [sap] х[effect0.status0.power] на всех врагов.",
+        "portuguese": "Aplica [sap] [effect0.status0.power] a todas as unidades inimigas.",
+        "chinese": "对所有敌方单位施加 [sap] [effect0.status0.power]。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        "@MonsterEnthusiasticFanSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

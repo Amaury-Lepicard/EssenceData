@@ -1,0 +1,31 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterDoubleEdgedBearer",
+      "upgrade": "@MonsterDoubleEdgedBearerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterDoubleEdgedBearerSynthesis",
+      "descriptions": {
+        "english": "+10[attack] and [multistrike] 1.",
+        "french": "+10[attack] et [multistrike] 1.",
+        "german": "+10[attack] und [multistrike] 1.",
+        "russian": "+10[attack] и [multistrike] 1.",
+        "portuguese": "+10[attack] e [multistrike] 1.",
+        "chinese": "+10[attack]，[multistrike] 1。"
+      },
+      "bonus_damage": 10,
+      "status_effect_upgrades": [
+        {
+          "status": "multistrike",
+          "count": 1
+        }
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

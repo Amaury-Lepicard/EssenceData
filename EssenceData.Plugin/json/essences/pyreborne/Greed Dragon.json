@@ -1,0 +1,82 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterGreedDragon",
+      "upgrade": "@MonsterGreedDragonSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterGreedDragonSynthesis",
+      "descriptions": {
+        "english": "'[summon]: +10[attack] and +10[health] for each [dragonshoardicon].'",
+        "french": "'[summon]: +10[attack] et +10[health] pour chaque [dragonshoardicon].'",
+        "german": "'[summon]: +10[attack] und +10[health] pro [dragonshoardicon].'",
+        "russian": "'[summon]: +10[attack] и +10[health] за каждый [dragonshoardicon].'",
+        "portuguese": "'[summon]: +10[attack] e +10[health] para cada [dragonshoardicon].'",
+        "chinese": "'[summon]: 每有一个[dragonshoardicon]就+10[attack]并+10[health]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterGreedDragonSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterGreedDragonSynthesis.GreedDragonSpawn_Upgrade",
+      "bonus_damage": 10,
+      "bonus_hp": 10
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterGreedDragonSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddCardUpgradeToUnitsPerDragonsHoard",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterGreedDragonSynthesis.GreedDragonSpawn_Upgrade",
+      "additional_tooltips": [
+        "@MonsterGreedDragonSynthesis.triggerUpgrades0.effects0.additionalTooltips0"
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterGreedDragonSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "+[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] for each [dragonshoardicon].",
+        "french": "+[effect0.upgrade.bonusdamage][attack] et +[effect0.upgrade.bonushp][health] pour chaque [dragonshoardicon].",
+        "german": "+[effect0.upgrade.bonusdamage][attack] und +[effect0.upgrade.bonushp][health] pro [dragonshoardicon].",
+        "russian": "+[effect0.upgrade.bonusdamage][attack] и +[effect0.upgrade.bonushp][health] за каждый [dragonshoardicon].",
+        "portuguese": "+[effect0.upgrade.bonusdamage][attack] e +[effect0.upgrade.bonushp][health] para cada [dragonshoardicon].",
+        "chinese": "每有一个[dragonshoardicon]就+[effect0.upgrade.bonusdamage][attack]并+[effect0.upgrade.bonushp][health]。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        "@MonsterGreedDragonSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterGreedDragonSynthesis.triggerUpgrades0.effects0.additionalTooltips0",
+      "descriptions": {
+        "english": "Earn Dragon's Hoard and loot it outside of battle for valuable rewards.",
+        "french": "Augmentez le Trésor du dragon et utilisez-le en dehors des combats pour obtenir de précieuses récompenses.",
+        "german": "Hol dir mit dem Drachenschatz außerhalb des Kampfes wertvolle Belohnungen.",
+        "russian": "Заработайте Драконий клад и обменяйте его на награду в перерыве между боями.",
+        "portuguese": "Ganhe Tesouro do Dragão e o saqueie fora da batalha para obter recompensas valiosas.",
+        "chinese": "获得龙族宝藏，在非战斗状态下将其搜刮以获得宝贵的奖励。"
+      },
+      "titles": {
+        "english": "[dragonshoardicon]Dragon's Hoard",
+        "french": "[dragonshoardicon]Trésor du dragon",
+        "german": "[dragonshoardicon]Drachenschatz",
+        "russian": "[dragonshoardicon] Драконий клад",
+        "portuguese": "[dragonshoardicon]Tesouro do Dragão",
+        "chinese": "[dragonshoardicon]龙族宝藏"
+      },
+      "style": "default"
+    }
+  ]
+}

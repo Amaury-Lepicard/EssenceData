@@ -1,0 +1,66 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterAmorousEnoki",
+      "upgrade": "@MonsterAmorousEnokiSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterAmorousEnokiSynthesis",
+      "descriptions": {
+        "english": "'[rally]: Apply [regen] 1 and +1[health] to friendly units.'",
+        "french": "'[rally]: Applique [regen] 1 et +1[health] aux alliés.'",
+        "german": "'[rally]: Wende [regen] 1 und +1[health] auf verbündete Einheiten an.'",
+        "russian": "'[rally]: Союзникам даются [regen] х1 и +1[health]'",
+        "portuguese": "'[rally]: Aplica [regen] 1 e +1[health] às unidades aliadas.'",
+        "chinese": "'[rally]: 使所有友方单位获得 [regen] 1 和+1[health]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterAmorousEnokiSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterAmorousEnokiSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "regen",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "MonsterAmorousEnokiSynthesis.triggerUpgrades0.effects1",
+      "name": "CardEffectBuffMaxHealth",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_int": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterAmorousEnokiSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [regen] [effect0.status0.power] and +[effect1.power][health] to friendly units.",
+        "french": "Applique [regen] [effect0.status0.power] et +[effect1.power][health] aux alliés.",
+        "german": "Wende [regen] [effect0.status0.power] und +[effect1.power][health] auf verbündete Einheiten an.",
+        "russian": "Союзникам даются [regen] х[effect0.status0.power] и +[effect1.power][health]",
+        "portuguese": "Aplica [regen] [effect0.status0.power] e +[effect1.power][health] às unidades aliadas.",
+        "chinese": "使所有友方单位获得 [regen] [effect0.status0.power] 和+[effect1.power][health]。"
+      },
+      "trigger": "card_monster_played",
+      "effects": [
+        "@MonsterAmorousEnokiSynthesis.triggerUpgrades0.effects0",
+        "@MonsterAmorousEnokiSynthesis.triggerUpgrades0.effects1"
+      ]
+    }
+  ]
+}

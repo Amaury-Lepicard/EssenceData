@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSycophant",
+      "upgrade": "@MonsterSycophantSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSycophantSynthesis",
+      "descriptions": {
+        "english": "'[strike]: Apply [pyregel] 8.'",
+        "french": "'[strike]: Inflige [pyregel] 8.'",
+        "german": "'[strike]: Wende [pyregel] 8 an.'",
+        "russian": "'[strike]: Накладывает [pyregel] х8.'",
+        "portuguese": "'[strike]: Aplica [pyregel] 8.'",
+        "chinese": "'[strike]: 施加 [pyregel] 8。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterSycophantSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterSycophantSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacked_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "pyregel",
+          "count": 8
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterSycophantSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [pyregel] [effect0.status0.power].",
+        "french": "Inflige [pyregel] [effect0.status0.power].",
+        "german": "Wende [pyregel] [effect0.status0.power] an.",
+        "russian": "Накладывает [pyregel] х[effect0.status0.power].",
+        "portuguese": "Aplica [pyregel] [effect0.status0.power].",
+        "chinese": "施加 [pyregel] [effect0.status0.power]。"
+      },
+      "trigger": "on_attacking",
+      "effects": [
+        "@MonsterSycophantSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

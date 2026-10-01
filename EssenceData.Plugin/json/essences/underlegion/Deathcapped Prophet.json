@@ -1,0 +1,51 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterDeathcappedProphet",
+      "upgrade": "@MonsterDeathcappedProphetSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterDeathcappedProphetSynthesis",
+      "descriptions": {
+        "english": "'[rally]: Draw +1 next turn.'",
+        "french": "'[rally]: Piochez +1 au prochain tour.'",
+        "german": "'[rally]: Ziehe im nächsten Zug +1.'",
+        "russian": "'[rally]: Возьмите +1 на следующий ход.'",
+        "portuguese": "'[rally]: Compre +1 no próximo turno.'",
+        "chinese": "'[rally]: 下个回合抽 +1 张牌。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterDeathcappedProphetSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterDeathcappedProphetSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectDrawAdditionalNextTurn",
+      "param_int": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterDeathcappedProphetSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Draw +[effect0.power] next turn.",
+        "french": "Piochez +[effect0.power] au prochain tour.",
+        "german": "Ziehe im nächsten Zug +[effect0.power].",
+        "russian": "Возьмите +[effect0.power] на следующий ход.",
+        "portuguese": "Compre +[effect0.power] no próximo turno.",
+        "chinese": "下个回合抽 +[effect0.power] 张牌。"
+      },
+      "trigger": "card_monster_played",
+      "effects": [
+        "@MonsterDeathcappedProphetSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

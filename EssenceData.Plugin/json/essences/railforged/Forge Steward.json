@@ -1,0 +1,59 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterForgeSteward",
+      "upgrade": "@MonsterForgeStewardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterForgeStewardSynthesis",
+      "descriptions": {
+        "english": "[armor] 25 and '[revenge]: [forge] 1.'",
+        "french": "[armor] 25 et '[revenge]: [forge] 1.'",
+        "german": "[armor] 25 und '[revenge]: [forge] 1.'",
+        "russian": "[armor] 25 и '[revenge]: [forge] х1.'",
+        "portuguese": "[armor] 25 e '[revenge]: [forge] 1.'",
+        "chinese": "[armor] 25，'[revenge]: [forge] 1。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "armor",
+          "count": 25
+        }
+      ],
+      "trigger_upgrades": [
+        "@MonsterForgeStewardSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterForgeStewardSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAdjustForgePoints",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_int": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterForgeStewardSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "[forge] [effect0.power].",
+        "french": "[forge] [effect0.power].",
+        "german": "[forge] [effect0.power].",
+        "russian": "[forge] х[effect0.power].",
+        "portuguese": "[forge] [effect0.power].",
+        "chinese": "[forge] [effect0.power]。"
+      },
+      "trigger": "on_hit",
+      "effects": [
+        "@MonsterForgeStewardSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

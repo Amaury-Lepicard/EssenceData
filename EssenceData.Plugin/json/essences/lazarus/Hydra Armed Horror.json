@@ -1,0 +1,63 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterHydraArmedHorror",
+      "upgrade": "@MonsterHydraArmedHorrorSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterHydraArmedHorrorSynthesis",
+      "descriptions": {
+        "english": "'[equipped]: The equipment is removed. Gain [multistrike] 1.'",
+        "french": "'[equipped]: L'équipement est retiré. Octroie [multistrike] 1.'",
+        "german": "'[equipped]: Die Ausrüstung wird entfernt. Erhalte [multistrike] 1.'",
+        "russian": "'[equipped]: Снаряжение убирается. Дает [multistrike] х1.'",
+        "portuguese": "'[equipped]: O equipamento é removido. Recebe [multistrike] 1.'",
+        "chinese": "'[equipped]: 移除装备。获得 [multistrike] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterHydraArmedHorrorSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterHydraArmedHorrorSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "multistrike",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "MonsterHydraArmedHorrorSynthesis.triggerUpgrades0.effects1",
+      "name": "CardEffectRemoveEquipment",
+      "target_mode": "self"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterHydraArmedHorrorSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "The equipment is removed. Gain [multistrike] [effect0.status0.power].",
+        "french": "L'équipement est retiré. Octroie [multistrike] [effect0.status0.power].",
+        "german": "Die Ausrüstung wird entfernt. Erhalte [multistrike] [effect0.status0.power].",
+        "russian": "Снаряжение убирается. Дает [multistrike] х[effect0.status0.power].",
+        "portuguese": "O equipamento é removido. Recebe [multistrike] [effect0.status0.power].",
+        "chinese": "移除装备。获得 [multistrike] [effect0.status0.power]。"
+      },
+      "trigger": "on_equipment_added",
+      "effects": [
+        "@MonsterHydraArmedHorrorSynthesis.triggerUpgrades0.effects0",
+        "@MonsterHydraArmedHorrorSynthesis.triggerUpgrades0.effects1"
+      ]
+    }
+  ]
+}

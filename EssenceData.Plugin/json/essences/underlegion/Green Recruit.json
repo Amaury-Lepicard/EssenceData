@@ -1,0 +1,71 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterGenerousHost",
+      "upgrade": "@MonsterGenerousHostSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterGenerousHostSynthesis",
+      "descriptions": {
+        "english": "'[extinguish]: [spawn] 4.'",
+        "french": "'[extinguish]: <b>Génère</b> 4.'",
+        "german": "'[extinguish]: [spawn] 4.'",
+        "russian": "'[extinguish]: [spawn] х4.'",
+        "portuguese": "'[extinguish]: [spawn] 4.'",
+        "chinese": "'[extinguish]: [spawn] 4。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterGenerousHostSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterGenerousHostSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectSpawnMonsterOrAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "target_subtype": "SubtypesData_Horde",
+      "param_character": "MonsterFunguy",
+      "param_status_effects": [
+        {
+          "status": "horde",
+          "count": 4
+        }
+      ],
+      "additional_tooltips": [
+        "@MonsterGenerousHostSynthesis.triggerUpgrades0.effects0.additionalTooltips0"
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterGenerousHostSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "[spawn] [effect0.power].",
+        "french": "<b>Génère</b> [effect0.power].",
+        "german": "[spawn] [effect0.power].",
+        "russian": "[spawn] х[effect0.power].",
+        "portuguese": "[spawn] [effect0.power].",
+        "chinese": "[spawn] [effect0.power]。"
+      },
+      "trigger": "on_death",
+      "effects": [
+        "@MonsterGenerousHostSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterGenerousHostSynthesis.triggerUpgrades0.effects0.additionalTooltips0",
+      "trigger": "card_monster_played",
+      "style": "default",
+      "allow_secondary_placement": true
+    }
+  ]
+}

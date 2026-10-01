@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterEnchantrelle",
+      "upgrade": "@MonsterEnchantrelleSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterEnchantrelleSynthesis",
+      "descriptions": {
+        "english": "'[rally]: Apply [sap] 1 to enemy units.'",
+        "french": "'[rally]: Inflige [sap] 1 aux unités ennemies.'",
+        "german": "'[rally]: Wende [sap] 1 auf gegnerische Einheiten an.'",
+        "russian": "'[rally]: Накладывает на вражеских бойцов [sap] 1.'",
+        "portuguese": "'[rally]: Aplica [sap] 1 às unidades inimigas.'",
+        "chinese": "'[rally]: 对所有敌方单位施加 [sap] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterEnchantrelleSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterEnchantrelleSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "debuff",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterEnchantrelleSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [sap] [effect0.status0.power] to enemy units.",
+        "french": "Inflige [sap] [effect0.status0.power] aux unités ennemies.",
+        "german": "Wende [sap] [effect0.status0.power] auf gegnerische Einheiten an.",
+        "russian": "Накладывает на вражеских бойцов [sap] [effect0.status0.power].",
+        "portuguese": "Aplica [sap] [effect0.status0.power] às unidades inimigas.",
+        "chinese": "对所有敌方单位施加 [sap] [effect0.status0.power]。"
+      },
+      "trigger": "card_monster_played",
+      "effects": [
+        "@MonsterEnchantrelleSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

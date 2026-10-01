@@ -1,0 +1,89 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterBalmabello",
+      "upgrade": "@MonsterBalmabelloSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterBalmabelloSynthesis",
+      "descriptions": {
+        "english": "[regen] 6, [spikes] 6 and '[extinguish]: Apply this unit's [buff] stacks to friendly units.'",
+        "french": "[regen] 6, [spikes] 6 et '[extinguish]: Confère les cumuls de [buff] de cette unité aux unités alliées.'",
+        "german": "[regen] 6, [spikes] 6 und '[extinguish]: Wende [buff]-Stapel der Einheit auf verbündete Einheiten an.'",
+        "russian": "[regen] 6, [spikes] 6 и '[extinguish]: Накладывает все слои <b>усиления</b> этого бойца на его союзников.'",
+        "portuguese": "[regen] 6, [spikes] 6 e '[extinguish]: Aplica as cargas de [buff] desta unidade às unidades aliadas.'",
+        "chinese": "[regen] 6，[spikes] 6，'[extinguish]: 使所有友方单位获得该单位的 [buff] 层数。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "regen",
+          "count": 6
+        },
+        {
+          "status": "spikes",
+          "count": 6
+        }
+      ],
+      "trigger_upgrades": [
+        "@MonsterBalmabelloSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterBalmabelloSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectTransferAllStatusEffectsFromUnit",
+      "target_mode": "self",
+      "additional_tooltips": [
+        "@MonsterBalmabelloSynthesis.triggerUpgrades0.effects0.additionalTooltips0"
+      ],
+      "param_int": 8,
+      "param_int_2": 2,
+      "hide_tooltip": true
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterBalmabelloSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply this unit's [buff] stacks to friendly units.",
+        "french": "Confère les cumuls de [buff] de cette unité aux unités alliées.",
+        "german": "Wende [buff]-Stapel der Einheit auf verbündete Einheiten an.",
+        "russian": "Накладывает все слои <b>усиления</b> этого бойца на его союзников.",
+        "portuguese": "Aplica as cargas de [buff] desta unidade às unidades aliadas.",
+        "chinese": "使所有友方单位获得该单位的 [buff] 层数。"
+      },
+      "trigger": "on_death",
+      "effects": [
+        "@MonsterBalmabelloSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterBalmabelloSynthesis.triggerUpgrades0.effects0.additionalTooltips0",
+      "descriptions": {
+        "english": "Buff effects are generally positive for their target and are represented by green icons.",
+        "french": "Les Bonus sont généralement positifs pour la cible et sont représentés par des icônes vertes.",
+        "german": "Buff-Effekte sind im Allgemeinen gut für das Ziel und werden mit grünen Symbolen dargestellt.",
+        "russian": "Усиления обычно положительно отражаются на цели и обозначаются зелеными значками.",
+        "portuguese": "Efeitos de Buff são geralmente positivos para seu alvo e são representados por ícones da cor verde.",
+        "chinese": "增益效果通常会对目标有加成作用，以绿色图标表示。"
+      },
+      "titles": {
+        "english": "Buff",
+        "french": "Bonus",
+        "german": "Buff",
+        "russian": "Усиление",
+        "portuguese": "Buff",
+        "chinese": "增益"
+      },
+      "style": "positive"
+    }
+  ]
+}

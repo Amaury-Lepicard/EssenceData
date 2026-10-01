@@ -1,0 +1,64 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterZealot",
+      "upgrade": "@MonsterZealotSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterZealotSynthesis",
+      "descriptions": {
+        "english": "[sweep] and '[action]: Apply [pyregel] 5 to enemy units.'",
+        "french": "[sweep] et '[action]: Inflige [pyregel] 5 aux unités ennemies.'",
+        "german": "[sweep] und '[action]: Wende [pyregel] 5 auf gegnerische Einheiten an.'",
+        "russian": "[sweep] и '[action]: Накладывает [pyregel] х5 на всех врагов.'",
+        "portuguese": "[sweep] e '[action]: Aplica [pyregel] 5 às unidades inimigas.'",
+        "chinese": "[sweep]，'[action]: 对所有敌方单位施加 [pyregel] 5。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "sweep",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [
+        "@MonsterZealotSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterZealotSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "pyregel",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterZealotSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [pyregel] [effect0.status0.power] to enemy units.",
+        "french": "Inflige [pyregel] [effect0.status0.power] aux unités ennemies.",
+        "german": "Wende [pyregel] [effect0.status0.power] auf gegnerische Einheiten an.",
+        "russian": "Накладывает [pyregel] х[effect0.status0.power] на всех врагов.",
+        "portuguese": "Aplica [pyregel] [effect0.status0.power] às unidades inimigas.",
+        "chinese": "对所有敌方单位施加 [pyregel] [effect0.status0.power]。"
+      },
+      "trigger": "on_turn_begin",
+      "effects": [
+        "@MonsterZealotSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

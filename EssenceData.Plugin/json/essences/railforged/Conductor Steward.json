@@ -1,0 +1,59 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterForemanSteward",
+      "upgrade": "@MonsterForemanStewardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterForemanStewardSynthesis",
+      "descriptions": {
+        "english": "'[rally]: Apply +5[attack] and +5[health] to the summoned unit.' and [ability]: <b>Train Whistle</b>.",
+        "french": "'[rally]: Octroie +5[attack] et +5[health] à l'unité invoquée.' et [ability]: <b>Coup de sifflet</b>.",
+        "german": "'[rally]: Verleiht der gerufenen Einheit +5[attack] und +5[health].' und [ability]: <b>Zugpfeife</b>.",
+        "russian": "'[rally]: Призванному бойцу дается +5[attack] и +5[health].' и [ability]: <b>Гудок поезда</b>.",
+        "portuguese": "'[rally]: Concede +5[attack] e +5[health] à unidade invocada.' e [ability]: <b>Apito do Trem</b>.",
+        "chinese": "'[rally]: 使被召唤的单位获得 +5[attack] 和 +5[health]。'，[ability]: <b>火车汽笛</b>。"
+      },
+      "trigger_upgrades": [
+        "@MonsterForemanStewardSynthesis.triggerUpgrades0"
+      ],
+      "ability_upgrade": "RailforgedChampionConductorStewardAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterForemanStewardSynthesis.Plus5Attack5Health",
+      "bonus_damage": 5,
+      "bonus_hp": 5
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterForemanStewardSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "last_spawned_character",
+      "target_team": "monsters",
+      "param_upgrade": "@MonsterForemanStewardSynthesis.Plus5Attack5Health"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterForemanStewardSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply +[effect0.upgrade.bonusdamage][attack] and +[effect0.upgrade.bonushp][health] to the summoned unit.",
+        "french": "Octroie +[effect0.upgrade.bonusdamage][attack] et +[effect0.upgrade.bonushp][health] à l'unité invoquée.",
+        "german": "Verleiht der gerufenen Einheit +[effect0.upgrade.bonusdamage][attack] und +[effect0.upgrade.bonushp][health].",
+        "russian": "Призванному бойцу дается +[effect0.upgrade.bonusdamage][attack] и +[effect0.upgrade.bonushp][health].",
+        "portuguese": "Concede +[effect0.upgrade.bonusdamage][attack] e +[effect0.upgrade.bonushp][health] à unidade invocada.",
+        "chinese": "使被召唤的单位获得 +[effect0.upgrade.bonusdamage][attack] 和 +[effect0.upgrade.bonushp][health]。"
+      },
+      "trigger": "card_monster_played",
+      "effects": [
+        "@MonsterForemanStewardSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}
