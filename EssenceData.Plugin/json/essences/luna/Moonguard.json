@@ -1,0 +1,78 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterMoonguard",
+      "upgrade": "@MonsterMoonguardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterMoonguardSynthesis",
+      "descriptions": {
+        "english": "'[moonshade]: [mageblade] 3.'",
+        "french": "'[moonshade]: [mageblade] 3.'",
+        "german": "'[moonshade]: [mageblade] 3.'",
+        "russian": "'[moonshade]: [mageblade] 3.'",
+        "portuguese": "'[moonshade]: [mageblade] 3.'",
+        "chinese": "'[moonshade]: [mageblade] 3。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterMoonguardSynthesis.triggerUpgrades0",
+        "@MonsterMoonguardSynthesis.triggerUpgrades1"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterMoonguardSynthesis.moonshadeUpgrade",
+      "status_effect_upgrades": [
+        {
+          "status": "mageblade",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterMoonguardSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterMoonguardSynthesis.moonshadeUpgrade",
+      "param_int_3": 1
+    },
+    {
+      "id": "MonsterMoonguardSynthesis.triggerUpgrades1.effects0",
+      "name": "CardEffectRemoveTempUpgradeFromUnit",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterMoonguardSynthesis.moonshadeUpgrade",
+      "param_bool": true
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterMoonguardSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "[mageblade] 3.",
+        "french": "[mageblade] 3.",
+        "german": "[mageblade] 3.",
+        "russian": "[mageblade] 3.",
+        "portuguese": "[mageblade] 3.",
+        "chinese": "[mageblade] 3。"
+      },
+      "trigger": "on_moon_shade",
+      "effects": [
+        "@MonsterMoonguardSynthesis.triggerUpgrades0.effects0"
+      ]
+    },
+    {
+      "id": "MonsterMoonguardSynthesis.triggerUpgrades1",
+      "trigger": "on_moonshade_lost",
+      "effects": [
+        "@MonsterMoonguardSynthesis.triggerUpgrades1.effects0"
+      ],
+      "hide_visual_and_ignore_silence": true
+    }
+  ]
+}

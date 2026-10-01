@@ -1,0 +1,59 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSilentSentinel",
+      "upgrade": "@MonsterSilentSentinelSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSilentSentinelSynthesis",
+      "descriptions": {
+        "english": "+20[health] and '[revenge]: Apply [spellweakness] 1 to the attacker.'",
+        "french": "+20[health] et '[revenge]: Applique [spellweakness] 1 à l'attaquant.'",
+        "german": "+20[health] und '[revenge]: Verleiht dem Angreifer [spellweakness] 1.'",
+        "russian": "+20[health] и '[revenge]: Накладывает [spellweakness] 1 на атакующего.'",
+        "portuguese": "+20[health] e '[revenge]: Aplica [spellweakness] 1 ao atacante.'",
+        "chinese": "+20[health]，'[revenge]: 对攻击者施加[spellweakness] 1。'"
+      },
+      "bonus_hp": 20,
+      "trigger_upgrades": [
+        "@MonsterSilentSentinelSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterSilentSentinelSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacker_character",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "spell weakness",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterSilentSentinelSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [spellweakness] 1 to the attacker.",
+        "french": "Applique [spellweakness] 1 à l'attaquant.",
+        "german": "Verleiht dem Angreifer [spellweakness] 1.",
+        "russian": "Накладывает [spellweakness] 1 на атакующего.",
+        "portuguese": "Aplica [spellweakness] 1 ao atacante.",
+        "chinese": "对攻击者施加[spellweakness] 1。"
+      },
+      "trigger": "on_hit",
+      "effects": [
+        "@MonsterSilentSentinelSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

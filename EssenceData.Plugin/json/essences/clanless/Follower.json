@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterFollower",
+      "upgrade": "@MonsterFollowerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterFollowerSynthesis",
+      "descriptions": {
+        "english": "[multistrike] 1.",
+        "french": "[multistrike] 1.",
+        "german": "[multistrike] 1.",
+        "russian": "[multistrike] 1.",
+        "portuguese": "[multistrike] 1.",
+        "chinese": "[multistrike] 1。"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "multistrike",
+          "count": 1
+        }
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

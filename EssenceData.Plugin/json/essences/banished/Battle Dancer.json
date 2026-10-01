@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterBattleDancer",
+      "upgrade": "@MonsterBattleDancerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterBattleDancerSynthesis",
+      "descriptions": {
+        "english": "'[shift]: Apply [valor] 1 to friendly units.'",
+        "french": "'[shift]: Applique [valor] 1 aux unités alliées.'",
+        "german": "'[shift]: Verleiht verbündeten Einheiten [valor] 1.'",
+        "russian": "'[shift]: Накладывает [valor] 1 на дружественных бойцов.'",
+        "portuguese": "'[shift]: Aplica [valor] 1 às unidades aliadas.'",
+        "chinese": "'[shift]: 对友方单位施加[valor] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterBattleDancerSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterBattleDancerSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "valor",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterBattleDancerSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [valor] 1 to friendly units.",
+        "french": "Applique [valor] 1 aux unités alliées.",
+        "german": "Verleiht verbündeten Einheiten [valor] 1.",
+        "russian": "Накладывает [valor] 1 на дружественных бойцов.",
+        "portuguese": "Aplica [valor] 1 às unidades aliadas.",
+        "chinese": "对友方单位施加[valor] 1。"
+      },
+      "trigger": "on_shift",
+      "effects": [
+        "@MonsterBattleDancerSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

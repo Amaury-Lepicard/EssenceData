@@ -1,0 +1,81 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSeleneAcolyte",
+      "upgrade": "@MonsterSeleneAcolyteSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSeleneAcolyteSynthesis",
+      "descriptions": {
+        "english": "'[slay]: Gain [conduit] 1.'",
+        "french": "'[slay]: Gagne [conduit] 1.'",
+        "german": "'[slay]: Erhalte [conduit] 1.'",
+        "russian": "'[slay]: Получает [conduit] 1.'",
+        "portuguese": "'[slay]: Ganha [conduit] 1.'",
+        "chinese": "'[slay]: 获得[conduit] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterSeleneAcolyteSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterSeleneAcolyteSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "conduit",
+          "count": 1
+        }
+      ],
+      "additional_tooltips": [
+        "@MonsterSeleneAcolyteSynthesis.triggerUpgrades0.effects0.additionalTooltips0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterSeleneAcolyteSynthesis.triggerUpgrades0.effects0.additionalTooltips0",
+      "descriptions": {
+        "english": "Increases the amount of damage dealt and health restored by spells.",
+        "french": "Augmente les dégâts infligés et les points de vie restaurés par les sorts.",
+        "german": "Erhöht den Schaden und die Heilung durch Zauber.",
+        "russian": "Увеличивает урон и восстановление здоровья от заклинаний.",
+        "portuguese": "Aumenta o dano causado e a vida restaurada por feitiços.",
+        "chinese": "提高法术造成的伤害和恢复的生命值。"
+      },
+      "titles": {
+        "english": "Magic Power",
+        "french": "Puissance magique",
+        "german": "Magiekraft",
+        "russian": "Магическая сила",
+        "portuguese": "Poder Mágico",
+        "chinese": "魔力"
+      }
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterSeleneAcolyteSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [conduit] 1.",
+        "french": "Gagne [conduit] 1.",
+        "german": "Erhalte [conduit] 1.",
+        "russian": "Получает [conduit] 1.",
+        "portuguese": "Ganha [conduit] 1.",
+        "chinese": "获得[conduit] 1。"
+      },
+      "trigger": "on_kill",
+      "effects": [
+        "@MonsterSeleneAcolyteSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}
