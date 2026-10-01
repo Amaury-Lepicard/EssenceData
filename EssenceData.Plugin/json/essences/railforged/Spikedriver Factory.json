@@ -1,0 +1,25 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSpikedriverFactory",
+      "upgrade": "@MonsterSpikedriverFactorySynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSpikedriverFactorySynthesis",
+      "descriptions": {
+        "english": "[ability]: <b>Spider Assembly</b>.",
+        "french": "[ability]: <b>Assemblage d'araignée</b>.",
+        "german": "[ability]: <b>Spinnenfertigung</b>.",
+        "russian": "[ability]: <b>Паучий узел</b>.",
+        "portuguese": "[ability]: <b>Montagem Aracnídea</b>.",
+        "chinese": "[ability]: <b>组装蜘蛛</b>。"
+      },
+      "ability_upgrade": "SpikedriverFactoryAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

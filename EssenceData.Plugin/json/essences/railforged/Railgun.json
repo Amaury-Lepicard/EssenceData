@@ -1,0 +1,35 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterRailgun",
+      "upgrade": "@MonsterRailgunSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterRailgunSynthesis",
+      "descriptions": {
+        "english": "[immobile], [burst] 1 and [ability]: <b>Overdrive</b>.",
+        "french": "[immobile], [burst] 1 et [ability]: <b>Surrégime</b>.",
+        "german": "[immobile], [burst] 1 und [ability]: <b>Überladung</b>.",
+        "russian": "[immobile], [burst] 1 и [ability]: <b>Форсаж</b>.",
+        "portuguese": "[immobile], [burst] 1 e [ability]: <b>Sobrecarga</b>.",
+        "chinese": "[immobile]，[burst] 1，[ability]: <b>超速传动</b>。"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "immobile",
+          "count": 1
+        },
+        {
+          "status": "burst",
+          "count": 1
+        }
+      ],
+      "ability_upgrade": "RailgunnerFireAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

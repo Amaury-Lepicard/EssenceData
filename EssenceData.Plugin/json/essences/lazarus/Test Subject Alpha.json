@@ -1,0 +1,34 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterTestSubjectAlpha",
+      "upgrade": "@MonsterTestSubjectAlphaSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterTestSubjectAlphaSynthesis",
+      "descriptions": {
+        "english": "[quick] and [sweep].",
+        "french": "[quick] et [sweep].",
+        "german": "[quick] und [sweep].",
+        "russian": "[quick] и [sweep].",
+        "portuguese": "[quick] e [sweep].",
+        "chinese": "[quick]，[sweep]。"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "ambush",
+          "count": 1
+        },
+        {
+          "status": "sweep",
+          "count": 1
+        }
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

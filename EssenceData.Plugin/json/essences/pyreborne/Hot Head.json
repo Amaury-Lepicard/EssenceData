@@ -1,0 +1,25 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterHotHead",
+      "upgrade": "@MonsterHotHeadSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterHotHeadSynthesis",
+      "descriptions": {
+        "english": "[ability]: <b>Fire Breathing</b>.",
+        "french": "[ability]: <b>Souffle de feu</b>.",
+        "german": "[ability]: <b>Feueratem</b>.",
+        "russian": "[ability]: <b>Дыхание огнем</b>.",
+        "portuguese": "[ability]: <b>Sopro de Fogo</b>.",
+        "chinese": "[ability]: <b>火焰吐息</b>。"
+      },
+      "ability_upgrade": "HotHeadAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

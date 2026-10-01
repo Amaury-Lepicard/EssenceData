@@ -1,0 +1,25 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "ErraticAssistant",
+      "upgrade": "@ErraticAssistantSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "ErraticAssistantSynthesis",
+      "descriptions": {
+        "english": "+9[attack].",
+        "french": "+9[attack].",
+        "german": "+9[attack].",
+        "russian": "+9[attack].",
+        "portuguese": "+9[attack].",
+        "chinese": "+9[attack]。"
+      },
+      "bonus_damage": 9,
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

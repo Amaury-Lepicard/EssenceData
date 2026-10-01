@@ -1,0 +1,59 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterPlagueDoctor",
+      "upgrade": "@MonsterPlagueDoctorSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterPlagueDoctorSynthesis",
+      "descriptions": {
+        "english": "'[strike]: Apply [unstable] equal to the damage dealt.'",
+        "french": "'[strike]: Applique [unstable] à hauteur des dégâts infligés.'",
+        "german": "'[strike]: Wende [unstable] in Höhe des verursachten Schadens an.'",
+        "russian": "'[strike]: Накладывает [unstable], равную нанесенному урону.'",
+        "portuguese": "'[strike]: Aplica [unstable] igual ao dano causado.'",
+        "chinese": "'[strike]: 施加等同于造成伤害量的 [unstable]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterPlagueDoctorSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterPlagueDoctorSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "last_attacked_character",
+      "target_team": "both",
+      "param_status_effects": [
+        {
+          "status": "unstable",
+          "count": 0
+        }
+      ],
+      "param_bool_2": true
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterPlagueDoctorSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [unstable] equal to the damage dealt.",
+        "french": "Applique [unstable] à hauteur des dégâts infligés.",
+        "german": "Wende [unstable] in Höhe des verursachten Schadens an.",
+        "russian": "Накладывает [unstable], равную нанесенному урону.",
+        "portuguese": "Aplica [unstable] igual ao dano causado.",
+        "chinese": "施加等同于造成伤害量的 [unstable]。"
+      },
+      "trigger": "on_attacking_before_damage",
+      "effects": [
+        "@MonsterPlagueDoctorSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

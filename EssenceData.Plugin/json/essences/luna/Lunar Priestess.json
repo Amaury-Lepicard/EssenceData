@@ -1,0 +1,152 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterLunarPriestess",
+      "upgrade": "@MonsterLunarPriestessSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterLunarPriestessSynthesis",
+      "descriptions": {
+        "english": "'[resolve]: Add a <b>Moon Ritual</b> spell with [ephemeral] to your hand.'",
+        "french": "'[resolve]: Ajoute un sort <b>Rituel lunaire</b> avec [ephemeral] à votre main.'",
+        "german": "'[resolve]: Nimm einen <b>Mondritual</b>-Zauber mit [ephemeral] auf die Hand.'",
+        "russian": "'[resolve]: В руку добавляется [ephemeral] карта с чарами <b>Ритуал под луной</b>.'",
+        "portuguese": "'[resolve]: Adiciona uma carta [ephemeral] feitiço de <b>Ritual Lunar</b> à sua mão.'",
+        "chinese": "'[resolve]: 添加一张带有 [ephemeral] 的<b>月之仪式</b>法术牌到你的手牌。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterLunarPriestessSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterLunarPriestessSynthesis.LunarPriestess_Upgrade",
+      "trait_upgrades": [
+        "@MonsterLunarPriestessSynthesis.traitDataUpgrades0"
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddBattleCard",
+      "param_upgrade": "@MonsterLunarPriestessSynthesis.LunarPriestess_Upgrade",
+      "additional_tooltips": [
+        "@MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0.additionalTooltips0",
+        "@MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0.additionalTooltips1",
+        "@MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0.additionalTooltips2",
+        "@MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0.additionalTooltips3"
+      ],
+      "param_int": 3,
+      "param_card_pool": "MoonRitualOnlyPool"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterLunarPriestessSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Add a <b>Moon Ritual</b> spell with [ephemeral] to your hand.",
+        "french": "Ajoute un sort <b>Rituel lunaire</b> avec [ephemeral] à votre main.",
+        "german": "Nimm einen <b>Mondritual</b>-Zauber mit [ephemeral] auf die Hand.",
+        "russian": "В руку добавляется [ephemeral] карта с чарами <b>Ритуал под луной</b>.",
+        "portuguese": "Adiciona uma carta [ephemeral] feitiço de <b>Ritual Lunar</b> à sua mão.",
+        "chinese": "添加一张带有 [ephemeral] 的<b>月之仪式</b>法术牌到你的手牌。"
+      },
+      "trigger": "post_combat",
+      "effects": [
+        "@MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0.additionalTooltips0",
+      "descriptions": {
+        "english": "Advances the current phase of the moon. There are two moon phases, [new] and [full]. Cannot occur during combat.",
+        "french": "Avance la phase de la lune (il y en a <nobr>deux :</nobr> [new] et [full]). Ne peut pas se produire pendant le combat.",
+        "german": "Lässt die aktuelle Mondphase voranschreiten. Es gibt zwei Mondphasen, [new] und [full]. Kann nicht im Kampf auftreten.",
+        "russian": "Ускоряет текущую фазу луны. Не срабатывает во время боя. Фазы движения две: [new] и [full].",
+        "portuguese": "Avança a fase atual da lua. Existem duas fases da lua, [new] e [full]. Não pode ocorrer durante o combate.",
+        "chinese": "推进当前的月相。有[new]和[full]两种月相。战斗期间无法触发。"
+      },
+      "titles": {
+        "english": "Phase",
+        "french": "Phase",
+        "german": "Phase",
+        "russian": "Фаза",
+        "portuguese": "Fase",
+        "chinese": "月相变化"
+      }
+    },
+    {
+      "id": "MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0.additionalTooltips1",
+      "status": "conduit",
+      "descriptions": {
+        "english": "+[codeint0] [magicpower] on this floor per stack.",
+        "french": "+[codeint0] [magicpower] à ce niveau par cumul.",
+        "german": "+[codeint0] [magicpower] pro Stapel auf dieser Ebene.",
+        "russian": "+[magicpower] x[codeint0] за слой на этом этаже.",
+        "portuguese": "+[codeint0] de [magicpower] nesse andar por carga.",
+        "chinese": "在本层时，每层 +[codeint0] [magicpower]。"
+      },
+      "titles": {
+        "english": "Conduit",
+        "french": "Canalisation",
+        "german": "Leitfähigkeit",
+        "russian": "Канал",
+        "portuguese": "Conduíte",
+        "chinese": "导流"
+      },
+      "style": "positive"
+    },
+    {
+      "id": "MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0.additionalTooltips2",
+      "descriptions": {
+        "english": "Purges when played, discarded, or at end of turn.",
+        "french": "La carte est purgée lorsqu'elle est jouée, défaussée, ou à la fin du tour.",
+        "german": "Wird ausgespielt, abgelegt oder am Ende des Zuges entfernt.",
+        "russian": "Ликвидируется будучи сыгранной, или сброшенной, а также в конце хода",
+        "portuguese": "A carta é expurgada quando jogada ou descartada, ou ao fim do turno.",
+        "chinese": "在打出、舍弃，或结束回合时移除。"
+      },
+      "titles": {
+        "english": "Ephemeral",
+        "french": "Éphémère",
+        "german": "Vergänglich",
+        "russian": "Временная",
+        "portuguese": "Efêmera",
+        "chinese": "短暂"
+      }
+    },
+    {
+      "id": "MonsterLunarPriestessSynthesis.triggerUpgrades0.effects0.additionalTooltips3",
+      "descriptions": {
+        "english": "Increases the amount of damage dealt and health restored by spells.",
+        "french": "Augmente la quantité de dommages infligés et de PV restaurés par les sorts.",
+        "german": "Erhöht die Menge an zugefügtem Schaden und wiederhergestellter Gesundheit durch Zauber.",
+        "russian": "Увеличивает количество наносимого чарами урона и восстанавливаемого ими здоровья.",
+        "portuguese": "Aumenta a quantidade de dano causado e de vida restaurada por feitiços.",
+        "chinese": "提高法术造成的伤害与恢复的生命值。"
+      },
+      "titles": {
+        "english": "Magic Power",
+        "french": "Puissance magique",
+        "german": "Magische Kraft",
+        "russian": "Сила магии",
+        "portuguese": "Poder Mágico",
+        "chinese": "魔法强度"
+      }
+    }
+  ],
+  "traits": [
+    {
+      "id": "MonsterLunarPriestessSynthesis.traitDataUpgrades0",
+      "name": "CardTraitEphemeral",
+      "trait_is_removable": false
+    }
+  ]
+}

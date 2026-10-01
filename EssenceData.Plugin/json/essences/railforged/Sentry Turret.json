@@ -1,0 +1,47 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSentryTurret",
+      "upgrade": "@MonsterSentryTurretSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSentryTurretSynthesis",
+      "descriptions": {
+        "english": "[immobile] and 'Attacks immediately when an enemy moves.'",
+        "french": "[immobile] et 'Attaque immédiatement quand un ennemi se déplace.'",
+        "german": "[immobile] und 'Greift sofort an, wenn sich ein Feind bewegt.'",
+        "russian": "[immobile] и 'Мгновенная атака при движении врага.'",
+        "portuguese": "[immobile] e 'Ataca imediatamente quando um inimigo se move.'",
+        "chinese": "[immobile]，'当敌人移动时，立即发动攻击。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "immobile",
+          "count": 1
+        }
+      ],
+      "room_modifier_upgrades": [
+        "@MonsterSentryTurretSynthesis.roomModifierUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "MonsterSentryTurretSynthesis.roomModifierUpgrades0",
+      "descriptions": {
+        "english": "Attacks immediately when an enemy moves.",
+        "french": "Attaque immédiatement quand un ennemi se déplace.",
+        "german": "Greift sofort an, wenn sich ein Feind bewegt.",
+        "russian": "Мгновенная атака при движении врага.",
+        "portuguese": "Ataca imediatamente quando um inimigo se move.",
+        "chinese": "当敌人移动时，立即发动攻击。"
+      },
+      "name": "RoomStateSentryAttackModifier"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSalvageSteward",
+      "upgrade": "@MonsterSalvageStewardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSalvageStewardSynthesis",
+      "descriptions": {
+        "english": "'[harvest]: [forge] 1.' and [ability]: <b>Scrap Harvest</b>.",
+        "french": "'[harvest]: [forge] 1.' et [ability]: <b>Collecte de rebuts</b>.",
+        "german": "'[harvest]: [forge] 1.' und [ability]: <b>Schrotternte</b>.",
+        "russian": "'[harvest]: [forge] х1.' и [ability]: <b>Сбор лома</b>.",
+        "portuguese": "'[harvest]: [forge] 1.' e [ability]: <b>Coleta de Sucata</b>.",
+        "chinese": "'[harvest]: [forge] 1。'，[ability]: <b>收获废料</b>。"
+      },
+      "trigger_upgrades": [
+        "@MonsterSalvageStewardSynthesis.triggerUpgrades0"
+      ],
+      "ability_upgrade": "SalvageMachineAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterSalvageStewardSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAdjustForgePoints",
+      "target_mode": "room",
+      "target_team": "both",
+      "param_int": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterSalvageStewardSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "[forge] [effect0.power].",
+        "french": "[forge] [effect0.power].",
+        "german": "[forge] [effect0.power].",
+        "russian": "[forge] х[effect0.power].",
+        "portuguese": "[forge] [effect0.power].",
+        "chinese": "[forge] [effect0.power]。"
+      },
+      "trigger": "on_any_unit_death_on_floor",
+      "effects": [
+        "@MonsterSalvageStewardSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

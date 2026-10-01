@@ -1,0 +1,84 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterHeroInTraining",
+      "upgrade": "@MonsterHeroInTrainingSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterHeroInTrainingSynthesis",
+      "descriptions": {
+        "english": "'[strike]: Gain [valor] 1.' and '[shift]: Gain [rage] 2.'",
+        "french": "'[strike]: Octroie [valor] 1.' et '[shift]: Octroie [rage] 2.'",
+        "german": "'[strike]: Erhalte [valor] 1.' und '[shift]: Erhalte [rage] 2.'",
+        "russian": "'[strike]: Дает 1 х[valor].' и '[shift]: Дает 2 х[rage].'",
+        "portuguese": "'[strike]: Recebe [valor] 1.' e '[shift]: Recebe [rage] 2.'",
+        "chinese": "'[strike]: 获得 [valor] 1。'，'[shift]: 获得 [rage] 2。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterHeroInTrainingSynthesis.triggerUpgrades0",
+        "@MonsterHeroInTrainingSynthesis.triggerUpgrades1"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterHeroInTrainingSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "valor",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "MonsterHeroInTrainingSynthesis.triggerUpgrades1.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "buff",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterHeroInTrainingSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [valor] [effect0.status0.power].",
+        "french": "Octroie [valor] [effect0.status0.power].",
+        "german": "Erhalte [valor] [effect0.status0.power].",
+        "russian": "Дает [effect0.status0.power] х[valor].",
+        "portuguese": "Recebe [valor] [effect0.status0.power].",
+        "chinese": "获得 [valor] [effect0.status0.power]。"
+      },
+      "trigger": "on_attacking",
+      "effects": [
+        "@MonsterHeroInTrainingSynthesis.triggerUpgrades0.effects0"
+      ]
+    },
+    {
+      "id": "MonsterHeroInTrainingSynthesis.triggerUpgrades1",
+      "descriptions": {
+        "english": "Gain [rage] [effect0.status0.power].",
+        "french": "Octroie [rage] [effect0.status0.power].",
+        "german": "Erhalte [rage] [effect0.status0.power].",
+        "russian": "Дает [effect0.status0.power] х[rage].",
+        "portuguese": "Recebe [rage] [effect0.status0.power].",
+        "chinese": "获得 [rage] [effect0.status0.power]。"
+      },
+      "trigger": "on_shift",
+      "effects": [
+        "@MonsterHeroInTrainingSynthesis.triggerUpgrades1.effects0"
+      ]
+    }
+  ]
+}

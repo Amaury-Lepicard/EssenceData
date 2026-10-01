@@ -1,0 +1,54 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterCrucibleSteward",
+      "upgrade": "@MonsterCrucibleStewardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterCrucibleStewardSynthesis",
+      "descriptions": {
+        "english": "'<b>Etch</b>: Deal damage equal to this unit's attack to the front enemy unit.' and [ability]: <b>Smelt</b>.",
+        "french": "'<b>Gravure</b>: Inflige des dégâts valant l'attaque de cette unité à l'ennemi en 1re ligne.' et [ability]: <b>Fusion</b>.",
+        "german": "'<b>Schnitzen</b>: Füge der vordersten gegnerischen Einheit Schaden im Ausmaß des Angriffs dieser Einheit zu.' und [ability]: <b>Schmelzen</b>.",
+        "russian": "'<b>Резьба</b>: Наносит переднему врагу урон, равный атаке этого бойца.' и [ability]: <b>Плавка</b>.",
+        "portuguese": "'<b>Entalhar</b>: Causa dano igual ao ataque desta unidade à unidade inimiga na frente.' e [ability]: <b>Fundir</b>.",
+        "chinese": "'<b>蚀刻</b>: 对前排敌方单位造成相当于该单位攻击力的伤害。'，[ability]: <b>熔炼</b>。"
+      },
+      "trigger_upgrades": [
+        "@MonsterCrucibleStewardSynthesis.triggerUpgrades0"
+      ],
+      "ability_upgrade": "SmeltAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterCrucibleStewardSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectDamagePerSourceAttack",
+      "target_mode": "front_in_room",
+      "target_team": "heroes",
+      "param_int": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterCrucibleStewardSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Deal damage equal to this unit's attack to the front enemy unit.",
+        "french": "Inflige des dégâts valant l'attaque de cette unité à l'ennemi en 1re ligne.",
+        "german": "Füge der vordersten gegnerischen Einheit Schaden im Ausmaß des Angriffs dieser Einheit zu.",
+        "russian": "Наносит переднему врагу урон, равный атаке этого бойца.",
+        "portuguese": "Causa dano igual ao ataque desta unidade à unidade inimiga na frente.",
+        "chinese": "对前排敌方单位造成相当于该单位攻击力的伤害。"
+      },
+      "trigger": "card_exhausted",
+      "effects": [
+        "@MonsterCrucibleStewardSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}
