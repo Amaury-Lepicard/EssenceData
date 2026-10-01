@@ -1,0 +1,57 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterHulkingMass",
+      "upgrade": "@MonsterHulkingMassSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterHulkingMassSynthesis",
+      "descriptions": {
+        "english": "'[reanimated]: Gain [armor] 40.'",
+        "french": "'[reanimated]: Gagne [armor] 40.'",
+        "german": "'[reanimated]: Erhalte [armor] 40.'",
+        "russian": "'[reanimated]: Получает [armor] 40.'",
+        "portuguese": "'[reanimated]: Ganha [armor] 40.'",
+        "chinese": "'[reanimated]: 获得[armor] 40。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterHulkingMassSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterHulkingMassSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 40
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterHulkingMassSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [armor] 40.",
+        "french": "Gagne [armor] 40.",
+        "german": "Erhalte [armor] 40.",
+        "russian": "Получает [armor] 40.",
+        "portuguese": "Ganha [armor] 40.",
+        "chinese": "获得[armor] 40。"
+      },
+      "trigger": "on_reanimated",
+      "effects": [
+        "@MonsterHulkingMassSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

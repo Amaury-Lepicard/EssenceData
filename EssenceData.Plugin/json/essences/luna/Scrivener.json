@@ -1,0 +1,66 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "Scrivener",
+      "upgrade": "@ScrivenerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "ScrivenerSynthesis",
+      "descriptions": {
+        "english": "'<b>End of Turn</b>: Apply -1[ember] and [attuned] to a random spell in your hand.'",
+        "french": "'<b>Fin du tour</b>: Applique -1[ember] et [attuned] à un sort aléatoire de votre main.'",
+        "german": "'<b>Zugende</b>: Verleiht einem zufälligen Zauber auf deiner Hand -1[ember] und [attuned].'",
+        "russian": "'<b>Конец хода</b>: Случайное заклинание в руке получает -1[ember] и [attuned].'",
+        "portuguese": "'<b>Fim do turno</b>: Aplica -1[ember] e [attuned] a um feitiço aleatório na sua mão.'",
+        "chinese": "'<b>回合结束</b>: 对你手牌中的一张随机法术施加-1[ember]和[attuned]。'"
+      },
+      "trigger_upgrades": [
+        "@ScrivenerSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "ScrivenerSynthesis.spellUpgrade",
+      "cost_reduction": 1,
+      "x_cost_reduction": 1,
+      "trait_upgrades": [
+        "@ScrivenerSynthesis.attuned"
+      ]
+    }
+  ],
+  "traits": [
+    {
+      "id": "ScrivenerSynthesis.attuned",
+      "name": "CardTraitStrongerMagicPower"
+    }
+  ],
+  "effects": [
+    {
+      "id": "ScrivenerSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddTempCardUpgradeToRandomCardInHand",
+      "param_upgrade": "@ScrivenerSynthesis.spellUpgrade",
+      "param_card_filter": "OnlySpells"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ScrivenerSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply -1[ember] and [attuned] to a random spell in your hand.",
+        "french": "Applique -1[ember] et [attuned] à un sort aléatoire de votre main.",
+        "german": "Verleiht einem zufälligen Zauber auf deiner Hand -1[ember] und [attuned].",
+        "russian": "Случайное заклинание в руке получает -1[ember] и [attuned].",
+        "portuguese": "Aplica -1[ember] e [attuned] a um feitiço aleatório na sua mão.",
+        "chinese": "对你手牌中的一张随机法术施加-1[ember]和[attuned]。"
+      },
+      "trigger": "end_turn_pre_hand_discard",
+      "effects": [
+        "@ScrivenerSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

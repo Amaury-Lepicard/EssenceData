@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterDivineDancer",
+      "upgrade": "@MonsterDivineDancerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterDivineDancerSynthesis",
+      "descriptions": {
+        "english": "'[shift]: Apply [armor] 2 to friendly units.'",
+        "french": "'[shift]: Applique [armor] 2 aux unités alliées.'",
+        "german": "'[shift]: Verleiht verbündeten Einheiten [armor] 2.'",
+        "russian": "'[shift]: Накладывает [armor] 2 на дружественных бойцов.'",
+        "portuguese": "'[shift]: Aplica [armor] 2 às unidades aliadas.'",
+        "chinese": "'[shift]: 对友方单位施加[armor] 2。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterDivineDancerSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterDivineDancerSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterDivineDancerSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [armor] 2 to friendly units.",
+        "french": "Applique [armor] 2 aux unités alliées.",
+        "german": "Verleiht verbündeten Einheiten [armor] 2.",
+        "russian": "Накладывает [armor] 2 на дружественных бойцов.",
+        "portuguese": "Aplica [armor] 2 às unidades aliadas.",
+        "chinese": "对友方单位施加[armor] 2。"
+      },
+      "trigger": "on_shift",
+      "effects": [
+        "@MonsterDivineDancerSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}
