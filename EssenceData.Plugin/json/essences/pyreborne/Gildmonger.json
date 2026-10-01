@@ -1,0 +1,78 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterAlchemicalAssistant",
+      "upgrade": "@MonsterAlchemicalAssistantSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterAlchemicalAssistantSynthesis",
+      "descriptions": {
+        "english": "'[extinguish]: Gain 1[dragonshoardicon].'",
+        "french": "'[extinguish]: Octroie 1[dragonshoardicon].'",
+        "german": "'[extinguish]: Erhalte 1[dragonshoardicon].'",
+        "russian": "'[extinguish]: Дает 1[dragonshoardicon].'",
+        "portuguese": "'[extinguish]: Recebe 1[dragonshoardicon].'",
+        "chinese": "'[extinguish]: 获得1[dragonshoardicon]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterAlchemicalAssistantSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterAlchemicalAssistantSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAdjustDragonsHoard",
+      "target_mode": "room",
+      "target_team": "none",
+      "additional_tooltips": [
+        "@MonsterAlchemicalAssistantSynthesis.triggerUpgrades0.effects0.additionalTooltips0"
+      ],
+      "param_int": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterAlchemicalAssistantSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [effect0.power][dragonshoardicon].",
+        "french": "Octroie [effect0.power][dragonshoardicon].",
+        "german": "Erhalte [effect0.power][dragonshoardicon].",
+        "russian": "Дает [effect0.power][dragonshoardicon].",
+        "portuguese": "Recebe [effect0.power][dragonshoardicon].",
+        "chinese": "获得[effect0.power][dragonshoardicon]。"
+      },
+      "trigger": "on_death",
+      "effects": [
+        "@MonsterAlchemicalAssistantSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterAlchemicalAssistantSynthesis.triggerUpgrades0.effects0.additionalTooltips0",
+      "descriptions": {
+        "english": "Earn Dragon's Hoard and loot it outside of battle for valuable rewards.",
+        "french": "Augmentez le Trésor du dragon et utilisez-le en dehors des combats pour obtenir de précieuses récompenses.",
+        "german": "Hol dir mit dem Drachenschatz außerhalb des Kampfes wertvolle Belohnungen.",
+        "russian": "Заработайте Драконий клад и обменяйте его на награду в перерыве между боями.",
+        "portuguese": "Ganhe Tesouro do Dragão e o saqueie fora da batalha para obter recompensas valiosas.",
+        "chinese": "获得龙族宝藏，在非战斗状态下将其搜刮以获得宝贵的奖励。"
+      },
+      "titles": {
+        "english": "[dragonshoardicon]Dragon's Hoard",
+        "french": "[dragonshoardicon]Trésor du dragon",
+        "german": "[dragonshoardicon]Drachenschatz",
+        "russian": "[dragonshoardicon] Драконий клад",
+        "portuguese": "[dragonshoardicon]Tesouro do Dragão",
+        "chinese": "[dragonshoardicon]龙族宝藏"
+      },
+      "style": "default"
+    }
+  ]
+}

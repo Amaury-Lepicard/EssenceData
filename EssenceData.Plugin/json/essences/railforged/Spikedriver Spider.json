@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSpikedriverSpider",
+      "upgrade": "@MonsterSpikedriverSpiderSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSpikedriverSpiderSynthesis",
+      "descriptions": {
+        "english": "[burst] 2.",
+        "french": "[burst] 2.",
+        "german": "[burst] 2.",
+        "russian": "[burst] 2.",
+        "portuguese": "[burst] 2.",
+        "chinese": "[burst] 2。"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "burst",
+          "count": 2
+        }
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

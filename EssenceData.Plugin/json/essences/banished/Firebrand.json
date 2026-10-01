@@ -1,0 +1,57 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterFirebrand",
+      "upgrade": "@MonsterFirebrandSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterFirebrandSynthesis",
+      "descriptions": {
+        "english": "'[revenge]: Gain [valor] 2.'",
+        "french": "'[revenge]: Octroie [valor] 2.'",
+        "german": "'[revenge]: Erhalte [valor] 2.'",
+        "russian": "'[revenge]: Дает [valor] х2.'",
+        "portuguese": "'[revenge]: Recebe [valor] 2.'",
+        "chinese": "'[revenge]: 获得 [valor] 2。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterFirebrandSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterFirebrandSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "valor",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterFirebrandSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [valor] [effect0.status0.power].",
+        "french": "Octroie [valor] [effect0.status0.power].",
+        "german": "Erhalte [valor] [effect0.status0.power].",
+        "russian": "Дает [valor] х[effect0.status0.power].",
+        "portuguese": "Recebe [valor] [effect0.status0.power].",
+        "chinese": "获得 [valor] [effect0.status0.power]。"
+      },
+      "trigger": "on_hit",
+      "effects": [
+        "@MonsterFirebrandSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

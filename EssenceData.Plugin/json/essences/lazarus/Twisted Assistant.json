@@ -1,0 +1,64 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterTwistedAssistant",
+      "upgrade": "@MonsterTwistedAssistantSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterTwistedAssistantSynthesis",
+      "descriptions": {
+        "english": "+15[attack], [trample] and '[strike]: Gain [rage] 2.'",
+        "french": "+15[attack], [trample] et '[strike]: Octroie [rage] 2.'",
+        "german": "+15[attack], [trample] und '[strike]: Erhalte [rage] 2.'",
+        "russian": "+15[attack], [trample] и '[strike]: Дает [rage] х2.'",
+        "portuguese": "+15[attack], [trample] e '[strike]: Recebe [rage] 2.'",
+        "chinese": "+15[attack]，[trample]，'[strike]: 获得 [rage] 2。'"
+      },
+      "bonus_damage": 15,
+      "status_effect_upgrades": [
+        {
+          "status": "trample",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [
+        "@MonsterTwistedAssistantSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterTwistedAssistantSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "buff",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterTwistedAssistantSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [rage] [effect0.status0.power].",
+        "french": "Octroie [rage] [effect0.status0.power].",
+        "german": "Erhalte [rage] [effect0.status0.power].",
+        "russian": "Дает [rage] х[effect0.status0.power].",
+        "portuguese": "Recebe [rage] [effect0.status0.power].",
+        "chinese": "获得 [rage] [effect0.status0.power]。"
+      },
+      "trigger": "on_attacking",
+      "effects": [
+        "@MonsterTwistedAssistantSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

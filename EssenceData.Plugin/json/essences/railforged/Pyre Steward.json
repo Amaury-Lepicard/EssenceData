@@ -1,0 +1,52 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterPyreSteward",
+      "upgrade": "@MonsterPyreStewardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterPyreStewardSynthesis",
+      "descriptions": {
+        "english": "'[slay]: Restore 2 Pyre health.'",
+        "french": "'[slay]: Restaure 2 PV de Brasier.'",
+        "german": "'[slay]: Stelle 2 Höllenglut-Gesundheit wieder her.'",
+        "russian": "'[slay]: Восстанавливает 2 здоровья Пекла.'",
+        "portuguese": "'[slay]: Restaura 2 de vida da Pira.'",
+        "chinese": "'[slay]: 恢复 2 点薪火生命值。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterPyreStewardSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterPyreStewardSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectHealTrain",
+      "suppress_pyre_room_focus": true,
+      "param_int": 2
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterPyreStewardSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Restore [effect0.power] Pyre health.",
+        "french": "Restaure [effect0.power] PV de Brasier.",
+        "german": "Stelle [effect0.power] Höllenglut-Gesundheit wieder her.",
+        "russian": "Восстанавливает [effect0.power] здоровья Пекла.",
+        "portuguese": "Restaura [effect0.power] de vida da Pira.",
+        "chinese": "恢复 [effect0.power] 点薪火生命值。"
+      },
+      "trigger": "on_kill",
+      "effects": [
+        "@MonsterPyreStewardSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

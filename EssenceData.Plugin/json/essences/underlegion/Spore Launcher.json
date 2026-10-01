@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSporelauncher",
+      "upgrade": "@MonsterSporelauncherSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSporelauncherSynthesis",
+      "descriptions": {
+        "english": "'[rally]: Apply [decay] 2 to enemy units.'",
+        "french": "'[rally]: Inflige [decay] 2 aux unités ennemies.'",
+        "german": "'[rally]: Wende [decay] 2 auf gegnerische Einheiten an.'",
+        "russian": "'[rally]: Накладывает [decay] х2 на всех врагов.'",
+        "portuguese": "'[rally]: Aplica [decay] 2 às unidades inimigas.'",
+        "chinese": "'[rally]: 对所有敌方单位施加 [decay] 2。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterSporelauncherSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterSporelauncherSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "decay",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterSporelauncherSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [decay] [effect0.status0.power] to enemy units.",
+        "french": "Inflige [decay] [effect0.status0.power] aux unités ennemies.",
+        "german": "Wende [decay] [effect0.status0.power] auf gegnerische Einheiten an.",
+        "russian": "Накладывает [decay] х[effect0.status0.power] на всех врагов.",
+        "portuguese": "Aplica [decay] [effect0.status0.power] às unidades inimigas.",
+        "chinese": "对所有敌方单位施加 [decay] [effect0.status0.power]。"
+      },
+      "trigger": "card_monster_played",
+      "effects": [
+        "@MonsterSporelauncherSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

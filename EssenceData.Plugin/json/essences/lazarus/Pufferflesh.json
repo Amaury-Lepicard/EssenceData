@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterPufferflesh",
+      "upgrade": "@MonsterPufferfleshSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterPufferfleshSynthesis",
+      "descriptions": {
+        "english": "+10[health] and '[revenge]: Gain [spikes] 3.'",
+        "french": "+10[health] et '[revenge]: Octroie [spikes] 3.'",
+        "german": "+10[health] und '[revenge]: Erhalte [spikes] 3.'",
+        "russian": "+10[health] и '[revenge]: Дает 3 х[spikes].'",
+        "portuguese": "+10[health] e '[revenge]: Recebe [spikes] 3.'",
+        "chinese": "+10[health]，'[revenge]: 获得 [spikes] 3。'"
+      },
+      "bonus_hp": 10,
+      "trigger_upgrades": [
+        "@MonsterPufferfleshSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterPufferfleshSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "spikes",
+          "count": 3
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterPufferfleshSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [spikes] [effect0.status0.power].",
+        "french": "Octroie [spikes] [effect0.status0.power].",
+        "german": "Erhalte [spikes] [effect0.status0.power].",
+        "russian": "Дает [effect0.status0.power] х[spikes].",
+        "portuguese": "Recebe [spikes] [effect0.status0.power].",
+        "chinese": "获得 [spikes] [effect0.status0.power]。"
+      },
+      "trigger": "on_hit",
+      "effects": [
+        "@MonsterPufferfleshSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

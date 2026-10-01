@@ -1,0 +1,25 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterGoldyWhelp",
+      "upgrade": "@MonsterGoldyWhelpSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterGoldyWhelpSynthesis",
+      "descriptions": {
+        "english": "[ability]: <b>Moneymaker</b>.",
+        "french": "[ability]: <b>Spéculateur</b>.",
+        "german": "[ability]: <b>Geldmaschine</b>.",
+        "russian": "[ability]: <b>Деньготворец</b>.",
+        "portuguese": "[ability]: <b>Faturando Alto</b>.",
+        "chinese": "[ability]: <b>赚钱高手</b>。"
+      },
+      "ability_upgrade": "GoldmanceAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

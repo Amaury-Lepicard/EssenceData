@@ -1,0 +1,65 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterReformingOoze",
+      "upgrade": "@MonsterReformingOozeSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterReformingOozeSynthesis",
+      "descriptions": {
+        "english": "[undying] 1 and '[reanimated]: +6[attack] permanently.'",
+        "french": "[undying] 1 et '[reanimated]: +6[attack] définitivement.'",
+        "german": "[undying] 1 und '[reanimated]: Permanent +6[attack].'",
+        "russian": "[undying] 1 и '[reanimated]: +6[attack] навсегда.'",
+        "portuguese": "[undying] 1 e '[reanimated]: +6[attack] permanentemente.'",
+        "chinese": "[undying] 1，'[reanimated]: 永久获得 +6[attack]。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "undying",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [
+        "@MonsterReformingOozeSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterReformingOozeSynthesis.ReformingOoze_Upgrade",
+      "bonus_damage": 6,
+      "upgrade_will_be_scaled_by_non_magic_power_trait": true
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterReformingOozeSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterReformingOozeSynthesis.ReformingOoze_Upgrade",
+      "param_int_3": 2,
+      "param_bool": true
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterReformingOozeSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "+[effect0.power][attack] permanently.",
+        "french": "+[effect0.power][attack] définitivement.",
+        "german": "Permanent +[effect0.power][attack].",
+        "russian": "+[effect0.power][attack] навсегда.",
+        "portuguese": "+[effect0.power][attack] permanentemente.",
+        "chinese": "永久获得 +[effect0.power][attack]。"
+      },
+      "trigger": "on_reanimated",
+      "effects": [
+        "@MonsterReformingOozeSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

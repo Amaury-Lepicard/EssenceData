@@ -1,0 +1,59 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterWeldling",
+      "upgrade": "@MonsterWeldlingSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterWeldlingSynthesis",
+      "descriptions": {
+        "english": "'[resolve]: Apply [armor] equal to half [attack] to the front friendly unit.'",
+        "french": "'[resolve]: Confère une [armor] valant la moitié de l'[attack] de l'allié en 1re ligne.'",
+        "german": "'[resolve]: Wende [armor] im Ausmaß der Hälfte des [attack]s auf die vorderste Einheit an.'",
+        "russian": "'[resolve]: Переднему союзнику дается [armor], равная половине [attack].'",
+        "portuguese": "'[resolve]: Concede [armor] igual a metade do [attack] à unidade aliada na frente.'",
+        "chinese": "'[resolve]: 使前排友方单位获得[armor]，数值相当于[attack]的一半。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterWeldlingSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterWeldlingSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffectPerSelfAttack",
+      "target_mode": "front_in_room",
+      "target_team": "monsters",
+      "param_status_effects": [
+        {
+          "status": "armor",
+          "count": 0
+        }
+      ],
+      "param_int": 2
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterWeldlingSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [armor] equal to half [attack] to the front friendly unit.",
+        "french": "Confère une [armor] valant la moitié de l'[attack] de l'allié en 1re ligne.",
+        "german": "Wende [armor] im Ausmaß der Hälfte des [attack]s auf die vorderste Einheit an.",
+        "russian": "Переднему союзнику дается [armor], равная половине [attack].",
+        "portuguese": "Concede [armor] igual a metade do [attack] à unidade aliada na frente.",
+        "chinese": "使前排友方单位获得[armor]，数值相当于[attack]的一半。"
+      },
+      "trigger": "post_combat",
+      "effects": [
+        "@MonsterWeldlingSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

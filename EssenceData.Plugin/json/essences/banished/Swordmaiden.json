@@ -1,0 +1,81 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterVengefulSwordmaiden",
+      "upgrade": "@MonsterVengefulSwordmaidenSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterVengefulSwordmaidenSynthesis",
+      "descriptions": {
+        "english": "'[summon]: Draw an equipment card from your deck.' and '<b>Artificer</b>: Gain [valor] 8.'",
+        "french": "'[summon]: Piochez une carte d'équipement dans le deck.' et '<b>Artificier</b>: Octroie [valor] 8.'",
+        "german": "'[summon]: Ziehe eine Ausrüstungskarte aus deinem Deck.' und '<b>Werkmeister</b>: Erhalte [valor] 8.'",
+        "russian": "'[summon]: Берет карту снаряжения из вашей колоды.' и '<b>Изобретатель</b>: Дает 8 х[valor].'",
+        "portuguese": "'[summon]: Compra uma carta de equipamento do seu deck.' e '<b>Artífice</b>: Recebe [valor] 8.'",
+        "chinese": "'[summon]: 从你的卡组中抽一张装备卡。'，'<b>巧匠</b>: 获得 [valor] 8。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterVengefulSwordmaidenSynthesis.triggerUpgrades0",
+        "@MonsterVengefulSwordmaidenSynthesis.triggerUpgrades1"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterVengefulSwordmaidenSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectDrawType",
+      "target_card_type": "equipment",
+      "param_card_filter": "OnlyEquipmentNoEnemyTargetted",
+      "param_card_filter_2": "OnlyEquipmentEnemyTargetted",
+      "param_int": 1
+    },
+    {
+      "id": "MonsterVengefulSwordmaidenSynthesis.triggerUpgrades1.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "valor",
+          "count": 8
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterVengefulSwordmaidenSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Draw an equipment card from your deck.",
+        "french": "Piochez une carte d'équipement dans le deck.",
+        "german": "Ziehe eine Ausrüstungskarte aus deinem Deck.",
+        "russian": "Берет карту снаряжения из вашей колоды.",
+        "portuguese": "Compra uma carta de equipamento do seu deck.",
+        "chinese": "从你的卡组中抽一张装备卡。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        "@MonsterVengefulSwordmaidenSynthesis.triggerUpgrades0.effects0"
+      ]
+    },
+    {
+      "id": "MonsterVengefulSwordmaidenSynthesis.triggerUpgrades1",
+      "descriptions": {
+        "english": "Gain [valor] [effect0.status0.power].",
+        "french": "Octroie [valor] [effect0.status0.power].",
+        "german": "Erhalte [valor] [effect0.status0.power].",
+        "russian": "Дает [effect0.status0.power] х[valor].",
+        "portuguese": "Recebe [valor] [effect0.status0.power].",
+        "chinese": "获得 [valor] [effect0.status0.power]。"
+      },
+      "trigger": "on_equipment_added_to_any",
+      "effects": [
+        "@MonsterVengefulSwordmaidenSynthesis.triggerUpgrades1.effects0"
+      ]
+    }
+  ]
+}

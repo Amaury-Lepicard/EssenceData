@@ -1,0 +1,57 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterKnucklerSteward",
+      "upgrade": "@MonsterKnucklerStewardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterKnucklerStewardSynthesis",
+      "descriptions": {
+        "english": "'[revenge]: Gain [burst] 1.'",
+        "french": "'[revenge]: Octroie [burst] 1.'",
+        "german": "'[revenge]: Erhalte [burst] 1.'",
+        "russian": "'[revenge]: Дается [burst] х1.'",
+        "portuguese": "'[revenge]: Recebe [burst] 1.'",
+        "chinese": "'[revenge]: 获得 [burst] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterKnucklerStewardSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterKnucklerStewardSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "burst",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterKnucklerStewardSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [burst] [effect0.status0.power].",
+        "french": "Octroie [burst] [effect0.status0.power].",
+        "german": "Erhalte [burst] [effect0.status0.power].",
+        "russian": "Дается [burst] х[effect0.status0.power].",
+        "portuguese": "Recebe [burst] [effect0.status0.power].",
+        "chinese": "获得 [burst] [effect0.status0.power]。"
+      },
+      "trigger": "on_hit",
+      "effects": [
+        "@MonsterKnucklerStewardSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

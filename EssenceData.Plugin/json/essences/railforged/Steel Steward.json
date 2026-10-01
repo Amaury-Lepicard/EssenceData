@@ -1,0 +1,34 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSteelSteward",
+      "upgrade": "@MonsterSteelStewardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSteelStewardSynthesis",
+      "descriptions": {
+        "english": "[armor] 50 and [steelguard].",
+        "french": "[armor] 50 et [steelguard].",
+        "german": "[armor] 50 und [steelguard].",
+        "russian": "[armor] 50 и [steelguard].",
+        "portuguese": "[armor] 50 e [steelguard].",
+        "chinese": "[armor] 50，[steelguard]。"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "armor",
+          "count": 50
+        },
+        {
+          "status": "steelguard",
+          "count": 1
+        }
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

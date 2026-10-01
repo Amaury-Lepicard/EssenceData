@@ -1,0 +1,25 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSneezyWhelp",
+      "upgrade": "@MonsterSneezyWhelpSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSneezyWhelpSynthesis",
+      "descriptions": {
+        "english": "[ability]: <b>Gellysneeze</b>.",
+        "french": "[ability]: <b>Projection de morve</b>.",
+        "german": "[ability]: <b>Gelnieser</b>.",
+        "russian": "[ability]: <b>Сопливый чих</b>.",
+        "portuguese": "[ability]: <b>Espirro Gosmento</b>.",
+        "chinese": "[ability]: <b>熔胶喷嚏</b>。"
+      },
+      "ability_upgrade": "BackdraftAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

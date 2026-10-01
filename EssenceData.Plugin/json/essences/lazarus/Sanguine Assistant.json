@@ -1,0 +1,64 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "SanguineAssistant",
+      "upgrade": "@SanguineAssistantSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "SanguineAssistantSynthesis",
+      "descriptions": {
+        "english": "+15[attack], [lifesteal] 1 and '[resolve]: Gain [lifesteal] 1.'",
+        "french": "+15[attack], [lifesteal] 1 et '[resolve]: Octroie [lifesteal] 1.'",
+        "german": "+15[attack], [lifesteal] 1 und '[resolve]: Erhalte [lifesteal] 1.'",
+        "russian": "+15[attack], [lifesteal] 1 и '[resolve]: Дает 1 х[lifesteal].'",
+        "portuguese": "+15[attack], [lifesteal] 1 e '[resolve]: Recebe [lifesteal] 1.'",
+        "chinese": "+15[attack]，[lifesteal] 1，'[resolve]: 获得 [lifesteal] 1。'"
+      },
+      "bonus_damage": 15,
+      "status_effect_upgrades": [
+        {
+          "status": "lifesteal",
+          "count": 1
+        }
+      ],
+      "trigger_upgrades": [
+        "@SanguineAssistantSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "SanguineAssistantSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "lifesteal",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "SanguineAssistantSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [lifesteal] [effect0.status0.power].",
+        "french": "Octroie [lifesteal] [effect0.status0.power].",
+        "german": "Erhalte [lifesteal] [effect0.status0.power].",
+        "russian": "Дает [effect0.status0.power] х[lifesteal].",
+        "portuguese": "Recebe [lifesteal] [effect0.status0.power].",
+        "chinese": "获得 [lifesteal] [effect0.status0.power]。"
+      },
+      "trigger": "post_combat",
+      "effects": [
+        "@SanguineAssistantSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}
