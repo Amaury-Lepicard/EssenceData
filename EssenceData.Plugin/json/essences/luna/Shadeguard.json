@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterFaeSunsetter",
+      "upgrade": "@MonsterFaeSunsetterSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterFaeSunsetterSynthesis",
+      "descriptions": {
+        "english": "'[resolve]: If it is [moonshade], gain +5[attack] and +10[health].'",
+        "french": "'[resolve]: Si c'est [moonshade], gagne +5[attack] et +10[health].'",
+        "german": "'[resolve]: Bei [moonshade] erhält diese Einheit +5[attack] und +10[health].'",
+        "russian": "'[resolve]: Если сейчас [moonshade], получает +5[attack] и +10[health].'",
+        "portuguese": "'[resolve]: Se for [moonshade], ganha +5[attack] e +10[health].'",
+        "chinese": "'[resolve]: 如果处于[moonshade]，获得+5[attack]和+10[health]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterFaeSunsetterSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterFaeSunsetterSynthesis.statsUpgrade",
+      "bonus_damage": 5,
+      "bonus_hp": 10
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterFaeSunsetterSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddCardUpgradeToUnitsOnMoonPhase",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterFaeSunsetterSynthesis.statsUpgrade",
+      "param_int": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterFaeSunsetterSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "If it is [moonshade], gain +5[attack] and +10[health].",
+        "french": "Si c'est [moonshade], gagne +5[attack] et +10[health].",
+        "german": "Bei [moonshade] erhält diese Einheit +5[attack] und +10[health].",
+        "russian": "Если сейчас [moonshade], получает +5[attack] и +10[health].",
+        "portuguese": "Se for [moonshade], ganha +5[attack] e +10[health].",
+        "chinese": "如果处于[moonshade]，获得+5[attack]和+10[health]。"
+      },
+      "trigger": "post_combat",
+      "effects": [
+        "@MonsterFaeSunsetterSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

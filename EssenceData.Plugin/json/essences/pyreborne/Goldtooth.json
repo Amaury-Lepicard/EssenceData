@@ -1,0 +1,44 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterPlunderer",
+      "upgrade": "@MonsterPlundererSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterPlundererSynthesis",
+      "descriptions": {
+        "english": "+1[ember] and '+5[attack] per 100[coin] you started the turn with.'",
+        "french": "+1[ember] et '+5[attack] par tranche de 100[coin] en votre possession au début du tour.'",
+        "german": "+1[ember] und '+5[attack] pro 100[coin], die du zu Beginn des Zuges hattest.'",
+        "russian": "+1[ember] и '+5[attack] за каждые 100[coin], с которыми вы начали ход.'",
+        "portuguese": "+1[ember] e '+5[attack] a cada 100[coin] com que você começou o turno.'",
+        "chinese": "+1[ember]，'回合开始时每拥有100[coin]，+5[attack]。'"
+      },
+      "cost_reduction": -1,
+      "room_modifier_upgrades": [
+        "@MonsterPlundererSynthesis.roomModifierUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "MonsterPlundererSynthesis.roomModifierUpgrades0",
+      "descriptions": {
+        "english": "+5[attack] per 100[coin] you started the turn with.",
+        "french": "+5[attack] par tranche de 100[coin] en votre possession au début du tour.",
+        "german": "+5[attack] pro 100[coin], die du zu Beginn des Zuges hattest.",
+        "russian": "+5[attack] за каждые 100[coin], с которыми вы начали ход.",
+        "portuguese": "+5[attack] a cada 100[coin] com que você começou o turno.",
+        "chinese": "回合开始时每拥有100[coin]，+5[attack]。"
+      },
+      "name": "RoomStateSelfDamagePerGoldModifier",
+      "param_int": 5,
+      "param_int_2": 100
+    }
+  ]
+}

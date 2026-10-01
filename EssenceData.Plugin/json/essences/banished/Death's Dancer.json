@@ -1,0 +1,57 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterDeathsDancer",
+      "upgrade": "@MonsterDeathsDancerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterDeathsDancerSynthesis",
+      "descriptions": {
+        "english": "'[shift]: Apply +2[attack] to friendly units.'",
+        "french": "'[shift]: Applique +2[attack] aux unités alliées.'",
+        "german": "'[shift]: Verleiht verbündeten Einheiten +2[attack].'",
+        "russian": "'[shift]: Дружественные бойцы получают +2[attack].'",
+        "portuguese": "'[shift]: Aplica +2[attack] às unidades aliadas.'",
+        "chinese": "'[shift]: 对友方单位施加+2[attack]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterDeathsDancerSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterDeathsDancerSynthesis.attackUpgrade",
+      "bonus_damage": 2
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterDeathsDancerSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "room",
+      "target_team": "monsters",
+      "param_upgrade": "@MonsterDeathsDancerSynthesis.attackUpgrade"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterDeathsDancerSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply +2[attack] to friendly units.",
+        "french": "Applique +2[attack] aux unités alliées.",
+        "german": "Verleiht verbündeten Einheiten +2[attack].",
+        "russian": "Дружественные бойцы получают +2[attack].",
+        "portuguese": "Aplica +2[attack] às unidades aliadas.",
+        "chinese": "对友方单位施加+2[attack]。"
+      },
+      "trigger": "on_shift",
+      "effects": [
+        "@MonsterDeathsDancerSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

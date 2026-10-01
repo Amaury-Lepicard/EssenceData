@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterMagmaCultist",
+      "upgrade": "@MonsterMagmaCultistSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterMagmaCultistSynthesis",
+      "descriptions": {
+        "english": "'<b>Etch</b>: Apply [pyregel] 4 to enemy units.'",
+        "french": "'<b>Etch</b>: Applique [pyregel] 4 aux unités ennemies.'",
+        "german": "'<b>Etch</b>: Verleiht feindlichen Einheiten [pyregel] 4.'",
+        "russian": "'<b>Etch</b>: Накладывает [pyregel] 4 на вражеских бойцов.'",
+        "portuguese": "'<b>Etch</b>: Aplica [pyregel] 4 às unidades inimigas.'",
+        "chinese": "'<b>Etch</b>: 对敌方单位施加[pyregel] 4。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterMagmaCultistSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterMagmaCultistSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "room",
+      "target_team": "heroes",
+      "param_status_effects": [
+        {
+          "status": "pyregel",
+          "count": 4
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterMagmaCultistSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Apply [pyregel] 4 to enemy units.",
+        "french": "Applique [pyregel] 4 aux unités ennemies.",
+        "german": "Verleiht feindlichen Einheiten [pyregel] 4.",
+        "russian": "Накладывает [pyregel] 4 на вражеских бойцов.",
+        "portuguese": "Aplica [pyregel] 4 às unidades inimigas.",
+        "chinese": "对敌方单位施加[pyregel] 4。"
+      },
+      "trigger": "card_exhausted",
+      "effects": [
+        "@MonsterMagmaCultistSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

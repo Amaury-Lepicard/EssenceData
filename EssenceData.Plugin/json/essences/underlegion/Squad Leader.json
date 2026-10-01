@@ -1,0 +1,62 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterSquadLeader",
+      "upgrade": "@MonsterSquadLeaderSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterSquadLeaderSynthesis",
+      "descriptions": {
+        "english": "[trample] and '[troop] adds +2[attack] per stack to friendly units.'",
+        "french": "[trample] et '[troop] confère +2[attack] par cumul aux unités alliées.'",
+        "german": "[trample] und '[troop] verleiht verbündeten Einheiten +2[attack] pro Stapel.'",
+        "russian": "[trample] и '[troop] даёт дружественным бойцам +2[attack] за каждый заряд.'",
+        "portuguese": "[trample] e '[troop] concede +2[attack] por acúmulo às unidades aliadas.'",
+        "chinese": "[trample]，'[troop]为友方单位每层提供+2[attack]。'"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "trample",
+          "count": 1
+        }
+      ],
+      "room_modifier_upgrades": [
+        "@MonsterSquadLeaderSynthesis.roomModifierUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterSquadLeaderSynthesis.troopUpgrade",
+      "bonus_damage": 2
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "MonsterSquadLeaderSynthesis.roomModifierUpgrades0",
+      "descriptions": {
+        "english": "[troop] adds +2[attack] per stack to friendly units.",
+        "french": "[troop] confère +2[attack] par cumul aux unités alliées.",
+        "german": "[troop] verleiht verbündeten Einheiten +2[attack] pro Stapel.",
+        "russian": "[troop] даёт дружественным бойцам +2[attack] за каждый заряд.",
+        "portuguese": "[troop] concede +2[attack] por acúmulo às unidades aliadas.",
+        "chinese": "[troop]为友方单位每层提供+2[attack]。"
+      },
+      "name": "RoomStateTroopUnitUpgradeModifier",
+      "param_upgrade": "@MonsterSquadLeaderSynthesis.troopUpgrade",
+      "additional_tooltips": [
+        "@MonsterSquadLeaderSynthesis.roomModifierUpgrades0.additionalTooltips0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterSquadLeaderSynthesis.roomModifierUpgrades0.additionalTooltips0",
+      "status": "horde",
+      "style": "default"
+    }
+  ]
+}

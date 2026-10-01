@@ -1,0 +1,78 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterNightshadow",
+      "upgrade": "@MonsterNightshadowSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterNightshadowSynthesis",
+      "descriptions": {
+        "english": "'[moonshade]: [multistrike] 1.'",
+        "french": "'[moonshade]: [multistrike] 1.'",
+        "german": "'[moonshade]: [multistrike] 1.'",
+        "russian": "'[moonshade]: [multistrike] 1.'",
+        "portuguese": "'[moonshade]: [multistrike] 1.'",
+        "chinese": "'[moonshade]: [multistrike] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterNightshadowSynthesis.triggerUpgrades0",
+        "@MonsterNightshadowSynthesis.triggerUpgrades1"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterNightshadowSynthesis.moonshadeUpgrade",
+      "status_effect_upgrades": [
+        {
+          "status": "multistrike",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterNightshadowSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterNightshadowSynthesis.moonshadeUpgrade",
+      "param_int_3": 1
+    },
+    {
+      "id": "MonsterNightshadowSynthesis.triggerUpgrades1.effects0",
+      "name": "CardEffectRemoveTempUpgradeFromUnit",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterNightshadowSynthesis.moonshadeUpgrade",
+      "param_bool": true
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterNightshadowSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "[multistrike] 1.",
+        "french": "[multistrike] 1.",
+        "german": "[multistrike] 1.",
+        "russian": "[multistrike] 1.",
+        "portuguese": "[multistrike] 1.",
+        "chinese": "[multistrike] 1。"
+      },
+      "trigger": "on_moon_shade",
+      "effects": [
+        "@MonsterNightshadowSynthesis.triggerUpgrades0.effects0"
+      ]
+    },
+    {
+      "id": "MonsterNightshadowSynthesis.triggerUpgrades1",
+      "trigger": "on_moonshade_lost",
+      "effects": [
+        "@MonsterNightshadowSynthesis.triggerUpgrades1.effects0"
+      ],
+      "hide_visual_and_ignore_silence": true
+    }
+  ]
+}

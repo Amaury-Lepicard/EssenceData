@@ -1,0 +1,52 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterBoneDog",
+      "upgrade": "@MonsterBoneDogSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterBoneDogSynthesis",
+      "descriptions": {
+        "english": "'[celebrate]: Your Pyre permanently gains +5[pyrehealth].'",
+        "french": "'[celebrate]: Votre Pyre gagne définitivement +5[pyrehealth].'",
+        "german": "'[celebrate]: Deine Pyre erhält dauerhaft +5[pyrehealth].'",
+        "russian": "'[celebrate]: Ваш Пир навсегда получает +5[pyrehealth].'",
+        "portuguese": "'[celebrate]: Sua Pira ganha permanentemente +5[pyrehealth].'",
+        "chinese": "'[celebrate]: 你的火种永久获得+5[pyrehealth]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterBoneDogSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterBoneDogSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectPermanentlyAdjustMaxPyreHealth",
+      "suppress_pyre_room_focus": true,
+      "param_int": 5
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterBoneDogSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Your Pyre permanently gains +5[pyrehealth].",
+        "french": "Votre Pyre gagne définitivement +5[pyrehealth].",
+        "german": "Deine Pyre erhält dauerhaft +5[pyrehealth].",
+        "russian": "Ваш Пир навсегда получает +5[pyrehealth].",
+        "portuguese": "Sua Pira ganha permanentemente +5[pyrehealth].",
+        "chinese": "你的火种永久获得+5[pyrehealth]。"
+      },
+      "trigger": "on_encounter_complete",
+      "effects": [
+        "@MonsterBoneDogSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

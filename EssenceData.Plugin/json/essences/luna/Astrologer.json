@@ -1,0 +1,57 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterAstrologer",
+      "upgrade": "@MonsterAstrologerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterAstrologerSynthesis",
+      "descriptions": {
+        "english": "'[mooncycle]: +5[attack].'",
+        "french": "'[mooncycle]: +5[attack].'",
+        "german": "'[mooncycle]: +5[attack].'",
+        "russian": "'[mooncycle]: +5[attack].'",
+        "portuguese": "'[mooncycle]: +5[attack].'",
+        "chinese": "'[mooncycle]: +5[attack]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterAstrologerSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterAstrologerSynthesis.attackUpgrade",
+      "bonus_damage": 5
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterAstrologerSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddTempCardUpgradeToUnits",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterAstrologerSynthesis.attackUpgrade"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterAstrologerSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "+5[attack].",
+        "french": "+5[attack].",
+        "german": "+5[attack].",
+        "russian": "+5[attack].",
+        "portuguese": "+5[attack].",
+        "chinese": "+5[attack]。"
+      },
+      "trigger": "on_moon_phase_shift",
+      "effects": [
+        "@MonsterAstrologerSynthesis.triggerUpgrades0.effects0"
+      ],
+      "suppress_notifications": true
+    }
+  ]
+}

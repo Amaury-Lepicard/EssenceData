@@ -1,0 +1,57 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterNineLivedNightmare",
+      "upgrade": "@MonsterNineLivedNightmareSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterNineLivedNightmareSynthesis",
+      "descriptions": {
+        "english": "'[resolve]: Gain [undying] 1.'",
+        "french": "'[resolve]: Gagne [undying] 1.'",
+        "german": "'[resolve]: Erhalte [undying] 1.'",
+        "russian": "'[resolve]: Получает [undying] 1.'",
+        "portuguese": "'[resolve]: Ganha [undying] 1.'",
+        "chinese": "'[resolve]: 获得[undying] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterNineLivedNightmareSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterNineLivedNightmareSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddStatusEffect",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "undying",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterNineLivedNightmareSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [undying] 1.",
+        "french": "Gagne [undying] 1.",
+        "german": "Erhalte [undying] 1.",
+        "russian": "Получает [undying] 1.",
+        "portuguese": "Ganha [undying] 1.",
+        "chinese": "获得[undying] 1。"
+      },
+      "trigger": "post_combat",
+      "effects": [
+        "@MonsterNineLivedNightmareSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

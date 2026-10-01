@@ -2,6 +2,8 @@
 - On the deck screen the Show Essence button sits under the view's banner (Deck, Draw Pile, ...) at the left of the screen, where the cards never scroll, instead of in the top-right corner over the Sort dropdown.
 - The Show Essence shortcut key no longer brings the button back on the deck screen when it is picking a card to upgrade.
 - On the draft screen the Show Essence button sits above the title, in the dialog's top frame, instead of in the top-right corner.
+- Add essences for 26 MT2 units from the design spreadsheet: Follower, Bone Dog, the Banished, Lazarus League, Luna Coven, Pyreborne and Underlegion entries that were proposed or approved there.
+- Add `CardEffectAddStatusEffectPerEnemyWithStatus`, a card effect that grants a status once per enemy unit holding at least N stacks of another status (used by Pyreblooded's essence).
 
 ## V0.2.0
 - Amaury-Lepicard added a Toggle Button for Unit Essences in UI screens that required it.

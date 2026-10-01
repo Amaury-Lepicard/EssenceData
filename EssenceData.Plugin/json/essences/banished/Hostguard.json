@@ -1,0 +1,25 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterHostguard",
+      "upgrade": "@MonsterHostguardSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterHostguardSynthesis",
+      "descriptions": {
+        "english": "[ability]: <b>Heavenly Slam</b>.",
+        "french": "[ability] : <b>Ruée céleste</b>.",
+        "german": "[ability]: <b>Himmlischer Schlag</b>.",
+        "russian": "[ability]: <b>Атака с небес</b>.",
+        "portuguese": "[ability]: <b>Pancada Celestial</b>.",
+        "chinese": "[ability]：<b>天堂猛击</b>。"
+      },
+      "ability_upgrade": "AngelFlightSlamAbility",
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

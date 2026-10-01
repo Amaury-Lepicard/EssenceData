@@ -1,0 +1,30 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterFaeMooncaller",
+      "upgrade": "@MonsterFaeMooncallerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterFaeMooncallerSynthesis",
+      "descriptions": {
+        "english": "[conduit] 15.",
+        "french": "[conduit] 15.",
+        "german": "[conduit] 15.",
+        "russian": "[conduit] 15.",
+        "portuguese": "[conduit] 15.",
+        "chinese": "[conduit] 15。"
+      },
+      "status_effect_upgrades": [
+        {
+          "status": "conduit",
+          "count": 15
+        }
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ]
+}

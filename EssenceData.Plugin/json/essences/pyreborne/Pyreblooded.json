@@ -1,0 +1,59 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterPyreblooded",
+      "upgrade": "@MonsterPyrebloodedSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterPyrebloodedSynthesis",
+      "descriptions": {
+        "english": "'[action]: Gain [burst] 1 for each enemy unit with [pyregel] 10 or more.'",
+        "french": "'[action]: Gagne [burst] 1 pour chaque unité ennemie ayant au moins [pyregel] 10.'",
+        "german": "'[action]: Erhalte [burst] 1 für jede feindliche Einheit mit mindestens [pyregel] 10.'",
+        "russian": "'[action]: Получает [burst] 1 за каждого вражеского бойца с [pyregel] 10 или больше.'",
+        "portuguese": "'[action]: Ganha [burst] 1 para cada unidade inimiga com [pyregel] 10 ou mais.'",
+        "chinese": "'[action]: 每有一个[pyregel]达到10或以上的敌方单位，获得[burst] 1。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterPyrebloodedSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterPyrebloodedSynthesis.triggerUpgrades0.effects0",
+      "name": "@CardEffectAddStatusEffectPerEnemyWithStatus",
+      "target_mode": "self",
+      "param_status_effects": [
+        {
+          "status": "burst",
+          "count": 1
+        }
+      ],
+      "param_str": "pyregel",
+      "param_int": 10
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterPyrebloodedSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Gain [burst] 1 for each enemy unit with [pyregel] 10 or more.",
+        "french": "Gagne [burst] 1 pour chaque unité ennemie ayant au moins [pyregel] 10.",
+        "german": "Erhalte [burst] 1 für jede feindliche Einheit mit mindestens [pyregel] 10.",
+        "russian": "Получает [burst] 1 за каждого вражеского бойца с [pyregel] 10 или больше.",
+        "portuguese": "Ganha [burst] 1 para cada unidade inimiga com [pyregel] 10 ou mais.",
+        "chinese": "每有一个[pyregel]达到10或以上的敌方单位，获得[burst] 1。"
+      },
+      "trigger": "on_turn_begin",
+      "effects": [
+        "@MonsterPyrebloodedSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

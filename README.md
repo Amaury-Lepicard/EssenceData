@@ -2,7 +2,9 @@
 
 Data mod containing Essences for Units. This mod by itself does not surface the mechanic in-game.
 
-Currently the mod defines essences for the MT1 units, along with Dante, Shield and Spear Steward.
+Currently the mod defines essences for the MT1 units, along with Dante, Shield and Spear Steward,
+and a first batch of MT2 units from the spreadsheet below (Banished, Lazarus League, Luna Coven,
+Pyreborne, Underlegion and the remaining clanless units).
 
 In game, a Toggle Unit Essences button on the deck, draft and logbook screens (also the
 Dragon's Hoard key, H by default, or right stick click) switches every unit card between

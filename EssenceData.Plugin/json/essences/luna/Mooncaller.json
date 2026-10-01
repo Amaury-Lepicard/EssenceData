@@ -1,0 +1,54 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterMooncaller",
+      "upgrade": "@MonsterMooncallerSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterMooncallerSynthesis",
+      "descriptions": {
+        "english": "+1[ember] and '[mooncycle] triggers an additional time.'",
+        "french": "+1[ember] et '[mooncycle] se déclenche une fois de plus.'",
+        "german": "+1[ember] und '[mooncycle] wird ein zusätzliches Mal ausgelöst.'",
+        "russian": "+1[ember] и '[mooncycle] срабатывает дополнительный раз.'",
+        "portuguese": "+1[ember] e '[mooncycle] é ativado uma vez adicional.'",
+        "chinese": "+1[ember]，'[mooncycle]额外触发一次。'"
+      },
+      "cost_reduction": -1,
+      "room_modifier_upgrades": [
+        "@MonsterMooncallerSynthesis.roomModifierUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    }
+  ],
+  "room_modifiers": [
+    {
+      "id": "MonsterMooncallerSynthesis.roomModifierUpgrades0",
+      "descriptions": {
+        "english": "[mooncycle] triggers an additional time.",
+        "french": "[mooncycle] se déclenche une fois de plus.",
+        "german": "[mooncycle] wird ein zusätzliches Mal ausgelöst.",
+        "russian": "[mooncycle] срабатывает дополнительный раз.",
+        "portuguese": "[mooncycle] é ativado uma vez adicional.",
+        "chinese": "[mooncycle]额外触发一次。"
+      },
+      "name": "RoomStateModifyTriggerCount",
+      "param_int": 1,
+      "param_trigger": "on_moon_phase_shift",
+      "additional_tooltips": [
+        "@MonsterMooncallerSynthesis.roomModifierUpgrades0.additionalTooltips0"
+      ]
+    }
+  ],
+  "additional_tooltips": [
+    {
+      "id": "MonsterMooncallerSynthesis.roomModifierUpgrades0.additionalTooltips0",
+      "trigger": "on_moon_phase_shift",
+      "style": "default"
+    }
+  ]
+}
