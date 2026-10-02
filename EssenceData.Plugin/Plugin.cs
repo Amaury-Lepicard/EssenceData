@@ -119,6 +119,7 @@ namespace EssenceData
                         "json/essences/railforged/Conductor Steward.json",
                         "json/essences/railforged/Crucible Steward.json",
                         "json/essences/railforged/Forge Steward.json",
+                        "json/essences/railforged/Juggernaut.json",
                         "json/essences/railforged/Knuckler Steward.json",
                         "json/essences/railforged/Pyre Steward.json",
                         "json/essences/railforged/Railgun.json",
