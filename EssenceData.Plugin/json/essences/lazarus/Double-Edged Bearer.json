@@ -10,22 +10,52 @@
     {
       "id": "MonsterDoubleEdgedBearerSynthesis",
       "descriptions": {
-        "english": "+10[attack] and [multistrike] 1.",
-        "french": "+10[attack] et [multistrike] 1.",
-        "german": "+10[attack] und [multistrike] 1.",
-        "russian": "+10[attack] и [multistrike] 1.",
-        "portuguese": "+10[attack] e [multistrike] 1.",
-        "chinese": "+10[attack]，[multistrike] 1。"
+        "english": "'[summon]: Add 1 <b>Double-Edged Arms</b> to your hand.'",
+        "french": "'[summon]: Ajoute 1 <b>Bras à doubles tranchants</b> à votre main.'",
+        "german": "„[summon]: Nimm 1 <b>Zweischneidige Waffen</b> auf die Hand.“",
+        "russian": "«[summon]: добавляет в руку 1 <b>\"Двуклешник\"</b>».",
+        "portuguese": "[summon]: adiciona 1 <b>Braços de Dois Gumes</b> à sua mão.",
+        "chinese": "'[summon]：将 1 张<b>双刃臂</b> 加入你的手牌。'"
       },
-      "bonus_damage": 10,
-      "status_effect_upgrades": [
-        {
-          "status": "multistrike",
-          "count": 1
-        }
+      "trigger_upgrades": [
+        "@MonsterDoubleEdgedBearerSynthesis.triggerUpgrades0"
       ],
       "hide_icon_on_card": true,
       "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterDoubleEdgedBearerSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddBattleCard",
+      "param_card_pool": "@DoubleEdgedArmsOnlyPool",
+      "param_int": 3,
+      "param_int_2": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterDoubleEdgedBearerSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Add 1 <b>Double-Edged Arms</b> to your hand.",
+        "french": "Ajoute 1 <b>Bras à doubles tranchants</b> à votre main.",
+        "german": "Nimm 1 <b>Zweischneidige Waffen</b> auf die Hand.",
+        "russian": "Добавляет в руку 1 <b>\"Двуклешник\"</b>.",
+        "portuguese": "Adiciona 1 <b>Braços de Dois Gumes</b> à sua mão.",
+        "chinese": "将 1 张<b>双刃臂</b> 加入你的手牌。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        "@MonsterDoubleEdgedBearerSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ],
+  "card_pools": [
+    {
+      "id": "DoubleEdgedArmsOnlyPool",
+      "cards": [
+        "DoubleEdgedArms"
+      ]
     }
   ]
 }

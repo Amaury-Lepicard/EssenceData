@@ -10,16 +10,52 @@
     {
       "id": "ErraticAssistantSynthesis",
       "descriptions": {
-        "english": "+9[attack].",
-        "french": "+9[attack].",
-        "german": "+9[attack].",
-        "russian": "+9[attack].",
-        "portuguese": "+9[attack].",
-        "chinese": "+9[attack]。"
+        "english": "'[summon]: Add 1 <b>Scissor Hands</b> to your hand.'",
+        "french": "'[summon]: Ajoute 1 <b>Mains en ciseaux</b> à votre main.'",
+        "german": "„[summon]: Nimm 1 <b>Scherenhände</b> auf die Hand.“",
+        "russian": "«[summon]: добавляет в руку 1 <b>\"Руки-ножницы\"</b>».",
+        "portuguese": "[summon]: adiciona 1 <b>Mãos de Tesoura</b> à sua mão.",
+        "chinese": "'[summon]：将 1 张<b>剪刀手</b> 加入你的手牌。'"
       },
-      "bonus_damage": 9,
+      "trigger_upgrades": [
+        "@ErraticAssistantSynthesis.triggerUpgrades0"
+      ],
       "hide_icon_on_card": true,
       "show_description_on_cards": false
+    }
+  ],
+  "effects": [
+    {
+      "id": "ErraticAssistantSynthesis.triggerUpgrades0.effects0",
+      "name": "CardEffectAddBattleCard",
+      "param_card_pool": "@ScissorHandsOnlyPool",
+      "param_int": 3,
+      "param_int_2": 1
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "ErraticAssistantSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "Add 1 <b>Scissor Hands</b> to your hand.",
+        "french": "Ajoute 1 <b>Mains en ciseaux</b> à votre main.",
+        "german": "Nimm 1 <b>Scherenhände</b> auf die Hand.",
+        "russian": "Добавляет в руку 1 <b>\"Руки-ножницы\"</b>.",
+        "portuguese": "Adiciona 1 <b>Mãos de Tesoura</b> à sua mão.",
+        "chinese": "将 1 张<b>剪刀手</b> 加入你的手牌。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        "@ErraticAssistantSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ],
+  "card_pools": [
+    {
+      "id": "ScissorHandsOnlyPool",
+      "cards": [
+        "ScissorHands"
+      ]
     }
   ]
 }

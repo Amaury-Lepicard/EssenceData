@@ -10,12 +10,12 @@
     {
       "id": "MonsterSycophantSynthesis",
       "descriptions": {
-        "english": "'[strike]: Apply [pyregel] 8.'",
-        "french": "'[strike]: Inflige [pyregel] 8.'",
-        "german": "'[strike]: Wende [pyregel] 8 an.'",
-        "russian": "'[strike]: Накладывает [pyregel] х8.'",
-        "portuguese": "'[strike]: Aplica [pyregel] 8.'",
-        "chinese": "'[strike]: 施加 [pyregel] 8。'"
+        "english": "'[strike]: Apply [pyregel] 2 to all enemies.'",
+        "french": "'[strike]: Inflige [pyregel] 2 à tous les ennemis.'",
+        "german": "'[strike]: Wende [pyregel] 2 auf alle Gegner an.'",
+        "russian": "'[strike]: Накладывает [pyregel] х2 на всех врагов.'",
+        "portuguese": "'[strike]: Aplica [pyregel] 2 a todos os inimigos.'",
+        "chinese": "'[strike]: 对所有敌人施加 [pyregel] 2。'"
       },
       "trigger_upgrades": [
         "@MonsterSycophantSynthesis.triggerUpgrades0"
@@ -28,12 +28,12 @@
     {
       "id": "MonsterSycophantSynthesis.triggerUpgrades0.effects0",
       "name": "CardEffectAddStatusEffect",
-      "target_mode": "last_attacked_character",
+      "target_mode": "room",
       "target_team": "heroes",
       "param_status_effects": [
         {
           "status": "pyregel",
-          "count": 8
+          "count": 2
         }
       ]
     }
@@ -42,12 +42,12 @@
     {
       "id": "MonsterSycophantSynthesis.triggerUpgrades0",
       "descriptions": {
-        "english": "Apply [pyregel] [effect0.status0.power].",
-        "french": "Inflige [pyregel] [effect0.status0.power].",
-        "german": "Wende [pyregel] [effect0.status0.power] an.",
-        "russian": "Накладывает [pyregel] х[effect0.status0.power].",
-        "portuguese": "Aplica [pyregel] [effect0.status0.power].",
-        "chinese": "施加 [pyregel] [effect0.status0.power]。"
+        "english": "Apply [pyregel] [effect0.status0.power] to all enemies.",
+        "french": "Inflige [pyregel] [effect0.status0.power] à tous les ennemis.",
+        "german": "Wende [pyregel] [effect0.status0.power] auf alle Gegner an.",
+        "russian": "Накладывает [pyregel] х[effect0.status0.power] на всех врагов.",
+        "portuguese": "Aplica [pyregel] [effect0.status0.power] a todos os inimigos.",
+        "chinese": "对所有敌人施加 [pyregel] [effect0.status0.power]。"
       },
       "trigger": "on_attacking",
       "effects": [

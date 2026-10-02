@@ -1,0 +1,58 @@
+{
+  "$schema": "https://github.com/Monster-Train-2-Modding-Group/Trainworks-Reloaded/releases/latest/download/schema.json",
+  "essences": [
+    {
+      "character": "MonsterJuggernaut",
+      "upgrade": "@MonsterJuggernautSynthesis"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "MonsterJuggernautSynthesis",
+      "descriptions": {
+        "english": "'[summon]: +30[attack], +30[health] and +1[size] for each unused [capacity] on this floor.'",
+        "french": "'[summon]: +30[attack], +30[health] et +1[size] pour chaque [capacity] inutilisée à cet étage.'",
+        "german": "'[summon]: +30[attack], +30[health] und +1[size] für jede ungenutzte [capacity] auf dieser Ebene.'",
+        "russian": "'[summon]: +30[attack], +30[health] и +1[size] за каждую незанятую [capacity] на этом этаже.'",
+        "portuguese": "'[summon]: +30[attack], +30[health] e +1[size] para cada [capacity] não utilizada neste andar.'",
+        "chinese": "'[summon]: 本层每有一点未使用的[capacity]，+30[attack]，+30[health]，+1[size]。'"
+      },
+      "trigger_upgrades": [
+        "@MonsterJuggernautSynthesis.triggerUpgrades0"
+      ],
+      "hide_icon_on_card": true,
+      "show_description_on_cards": false
+    },
+    {
+      "id": "MonsterJuggernautSynthesis.perCapacityUpgrade",
+      "bonus_damage": 30,
+      "bonus_hp": 30,
+      "bonus_size": 1
+    }
+  ],
+  "effects": [
+    {
+      "id": "MonsterJuggernautSynthesis.triggerUpgrades0.effects0",
+      "name": "@CardEffectAddCardUpgradeToUnitsPerFreeCapacity",
+      "target_mode": "self",
+      "param_upgrade": "@MonsterJuggernautSynthesis.perCapacityUpgrade"
+    }
+  ],
+  "character_triggers": [
+    {
+      "id": "MonsterJuggernautSynthesis.triggerUpgrades0",
+      "descriptions": {
+        "english": "+30[attack], +30[health] and +1[size] for each unused [capacity] on this floor.",
+        "french": "+30[attack], +30[health] et +1[size] pour chaque [capacity] inutilisée à cet étage.",
+        "german": "+30[attack], +30[health] und +1[size] für jede ungenutzte [capacity] auf dieser Ebene.",
+        "russian": "+30[attack], +30[health] и +1[size] за каждую незанятую [capacity] на этом этаже.",
+        "portuguese": "+30[attack], +30[health] e +1[size] para cada [capacity] não utilizada neste andar.",
+        "chinese": "本层每有一点未使用的[capacity]，+30[attack]，+30[health]，+1[size]。"
+      },
+      "trigger": "on_spawn",
+      "effects": [
+        "@MonsterJuggernautSynthesis.triggerUpgrades0.effects0"
+      ]
+    }
+  ]
+}

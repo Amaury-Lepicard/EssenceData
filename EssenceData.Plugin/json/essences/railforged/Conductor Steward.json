@@ -10,24 +10,23 @@
     {
       "id": "MonsterForemanStewardSynthesis",
       "descriptions": {
-        "english": "'[rally]: Apply +5[attack] and +5[health] to the summoned unit.' and [ability]: <b>Train Whistle</b>.",
-        "french": "'[rally]: Octroie +5[attack] et +5[health] à l'unité invoquée.' et [ability]: <b>Coup de sifflet</b>.",
-        "german": "'[rally]: Verleiht der gerufenen Einheit +5[attack] und +5[health].' und [ability]: <b>Zugpfeife</b>.",
-        "russian": "'[rally]: Призванному бойцу дается +5[attack] и +5[health].' и [ability]: <b>Гудок поезда</b>.",
-        "portuguese": "'[rally]: Concede +5[attack] e +5[health] à unidade invocada.' e [ability]: <b>Apito do Trem</b>.",
-        "chinese": "'[rally]: 使被召唤的单位获得 +5[attack] 和 +5[health]。'，[ability]: <b>火车汽笛</b>。"
+        "english": "'[rally]: Apply +10[attack] and +10[health] to the summoned unit.'",
+        "french": "'[rally]: Octroie +10[attack] et +10[health] à l'unité invoquée.'",
+        "german": "'[rally]: Verleiht der gerufenen Einheit +10[attack] und +10[health].'",
+        "russian": "'[rally]: Призванному бойцу дается +10[attack] и +10[health].'",
+        "portuguese": "'[rally]: Concede +10[attack] e +10[health] à unidade invocada.'",
+        "chinese": "'[rally]: 使被召唤的单位获得 +10[attack] 和 +10[health]。'"
       },
       "trigger_upgrades": [
         "@MonsterForemanStewardSynthesis.triggerUpgrades0"
       ],
-      "ability_upgrade": "RailforgedChampionConductorStewardAbility",
       "hide_icon_on_card": true,
       "show_description_on_cards": false
     },
     {
-      "id": "MonsterForemanStewardSynthesis.Plus5Attack5Health",
-      "bonus_damage": 5,
-      "bonus_hp": 5
+      "id": "MonsterForemanStewardSynthesis.Plus10Attack10Health",
+      "bonus_damage": 10,
+      "bonus_hp": 10
     }
   ],
   "effects": [
@@ -36,7 +35,7 @@
       "name": "CardEffectAddTempCardUpgradeToUnits",
       "target_mode": "last_spawned_character",
       "target_team": "monsters",
-      "param_upgrade": "@MonsterForemanStewardSynthesis.Plus5Attack5Health"
+      "param_upgrade": "@MonsterForemanStewardSynthesis.Plus10Attack10Health"
     }
   ],
   "character_triggers": [
