@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using TMPro;
 using UnityEngine;
+using static CardUI;
 
 [HarmonyPatch(typeof(CharacterData), nameof(CharacterData.GetCharacterCardText))]
 class CharacterData_GetCharacterCardText_AddFusedMonster_Patch
@@ -48,22 +49,45 @@ class CardTooltipContainer_AddUpgradedCharacterTriggers_SynthesisTooltipsPatch
     }
 }
 
-[HarmonyPatch(typeof(CardUI), nameof(CardUI.UpdateTextContent))]
-class CardUI_UpdateTextContent_ShowSynthesisEffectPatch
+[HarmonyPatch(typeof(CardUI), nameof(CardUI.ApplyStateToUI), [typeof(CardState), typeof(CardStatistics), typeof(MonsterManager), typeof(HeroManager), typeof(RelicManager), typeof(SaveManager), typeof(MasteryType), typeof(bool), typeof(bool), typeof(List<CardUpgradeState>), typeof(CardArtPool), typeof(CardEdgeVfxPool)])]
+static class CardUI_UpdateTextContent_ShowSynthesisEffectPatch
 {
     public static bool EnableShowingSynthesis = false;
-    public static bool Prefix(CardState cardState, CardFrameUI ____cardFrame)
+    public static void Postfix(CardUI __instance, CardState cardState, CardFrameUI ____cardFrame, ContentTinter ___cardFrontTinter, TMP_Text ___filteredReasonLabel)
     {
-        if (!EnableShowingSynthesis || !cardState.IsMonsterCard())
-            return true;
+        bool flag = cardState.CurrentDisabledReason == CardState.UpgradeDisabledReason.NONE;
+        if (!EnableShowingSynthesis && flag)
+        {
+            __instance.ResetSyntheisPreview();
+        }
+        else if (EnableShowingSynthesis && flag)
+        {
+            __instance.EnableSynthesisPreview(___cardFrontTinter, ___filteredReasonLabel);
+        }
+    }
+
+    static readonly FieldInfo CardUI_CardFrontTinter = AccessTools.Field(typeof(CardUI), "cardFrontTinter");
+    static readonly FieldInfo CardUI_FilteredReasonLabel = AccessTools.Field(typeof(CardUI), "filteredReasonLabel");
+    public static void EnableSynthesisPreview(this CardUI cardUI, ContentTinter? cardFrontTinter = null, TMP_Text? filteredReasonLabel = null)
+    {
+        var cardState = cardUI.GetCardState();
+        if (cardState == null)
+            return;
+
+        cardFrontTinter ??= CardUI_CardFrontTinter.GetValue(cardUI) as ContentTinter;
+        filteredReasonLabel ??= CardUI_FilteredReasonLabel.GetValue(cardUI) as TMP_Text;
+
+        cardFrontTinter!.Toggle(tintOn: true);
+
+        if (!cardState.IsMonsterCard() || cardState.IsChampionCard())
+            return;
 
         var essence = cardState.GetSpawnCharacterData()?.GetEssence();
 
-        cardState.GetCardTypeCardText(out string outCardText);
         string text = essence?.GetUpgradeDescriptionKey()?.Localize(new CardEffectLocalizationContext(essence, null, cardState)) ?? "No essence";
-        text = $"Effect: {text}";
-        ____cardFrame.SetTextContent(cardState.GetCardType(), cardState.GetTitle(), text, outCardText);
-        return false;
+        filteredReasonLabel!.SetText(text);
+        filteredReasonLabel.gameObject.SetActive(true);
+        filteredReasonLabel.enabled = true;
     }
 }
 
@@ -79,13 +103,20 @@ static class UnitEssenceToggle
     private const string ButtonName = "ToggleUnitEssencesButton";
     private const string GemName = "UnitEssencesGem";
 
-    private static void ShowState(Component screen)
+    private static void ShowState(Component screen, bool enable = true)
     {
         var on = CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis;
         foreach (var gem in screen.GetComponentsInChildren<Transform>(true).Where(t => t.name == GemName))
-            gem.gameObject.SetActive(on);
-        foreach (var option in screen.GetComponentsInChildren<FilterOptionButton>(true).Where(b => b.name == ButtonName))
-            option.SetSelected(on);
+        {
+            gem.gameObject.SetActive(on && enable);
+        }
+        foreach (var child in screen.GetComponentsInChildren<Transform>(true).Where(b => b.name == ButtonName))
+        {
+            var button = child.GetComponent<FilterOptionButton>();
+            if (button != null)
+                button.SetSelected(on);
+            child.gameObject.SetActive(enable);
+        }
     }
 
     private static IEnumerable<MethodBase> Screens(string deck, string draft, string logbook) =>
@@ -108,12 +139,19 @@ static class UnitEssenceToggle
                 || (selected != null && selected.TryGetComponent<TMP_InputField>(out var field) && field.isFocused))
                 return true;
 
-            CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis ^= true;
+            var flag = (CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis ^= true);
             // The logbook has no cardStatistics field, so this is null there; UpdateTextContent accepts null.
             var stats = Traverse.Create(__instance).Field<CardStatistics>("cardStatistics").Value;
-            foreach (var card in __instance.GetComponentsInChildren<CardUI>())
-                if (card.GetCardState() is { } state)
-                    card.UpdateTextContent(state, stats);
+            foreach (var cardUI in __instance.GetComponentsInChildren<CardUI>())
+            {
+                if (cardUI.GetCardState() != null)
+                {
+                    if (flag)
+                        cardUI.EnableSynthesisPreview();
+                    else
+                        cardUI.ResetSyntheisPreview();
+                }
+            }
             ShowState(__instance);
             __result = true;
             return false;
@@ -124,6 +162,7 @@ static class UnitEssenceToggle
     static class AddButton
     {
         static IEnumerable<MethodBase> TargetMethods() => Screens("Setup", "Setup", "Open");
+        static readonly FieldInfo DeckScreen_Mode = AccessTools.Field(typeof(DeckScreen), "mode");
 
         // Setup/Open run every time the screen is shown while the button object survives, so only
         // create it the first time. ShowState still runs every time: Close resets the flag, and a
@@ -131,8 +170,21 @@ static class UnitEssenceToggle
         static void Postfix(MonoBehaviour __instance)
         {
             if (!__instance.GetComponentsInChildren<GameUISelectableButton>(true).Any(b => b.name == ButtonName))
+            {
                 Create(__instance);
-            ShowState(__instance);
+            }
+
+            bool flag = true;
+            if (__instance is DeckScreen screen)
+            {
+                var mode = (DeckScreen.Mode)DeckScreen_Mode.GetValue(screen);
+                if (mode == DeckScreen.Mode.ApplyUpgrade)
+                {
+                    flag = false;
+                }
+            }
+
+            ShowState(__instance, flag);
         }
 
         private static void Create(MonoBehaviour __instance)
@@ -284,7 +336,7 @@ public static class SetupBodyUpgradeText_Patch
 
         if (matcher.IsInvalid)
         {
-            UnityEngine.Debug.LogError("[SetupBodyUpgradeText_Patch] Still failed to locate MoveNext call. Dumping opcodes for debugging.");
+            Plugin.Logger.LogError("[SetupBodyUpgradeText_Patch] Failed to locate MoveNext call. Patch needs to be redone.");
             return instructions;
         }
 
@@ -302,7 +354,7 @@ public static class SetupBodyUpgradeText_Patch
 
         if (matcher.IsInvalid)
         {
-            UnityEngine.Debug.LogError("[SetupBodyUpgradeText_Patch] Failed to locate get_Current assignment.");
+            Plugin.Logger.LogError("[SetupBodyUpgradeText_Patch] Failed to locate get_Current assignment. Patch needs to be redone");
             return instructions;
         }
 

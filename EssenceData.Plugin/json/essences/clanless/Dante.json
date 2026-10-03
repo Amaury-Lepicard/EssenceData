@@ -11,12 +11,12 @@
       "id": "MonsterDanteSynthesis",
       "descriptions": {
         "key": "CardUpgradeData_upgradeDescriptionKey-ed2a7a0eecb252d7-19fdb241554cdf54f9b06f091e57e818-v2",
-        "english": "[multistrike] 1 and '[summon]: Add 1 <b>Dante's Candle</b> to your hand.'",
-        "french": "<b>Frappe multiple</b> 1 et '[summon]: Ajoute 1 <b>Bougie de Dante</b> à votre main.'",
-        "german": "1 <b>Multischlag</b> und „[summon]: Nimm 1 <b>Dantes Kerze</b> auf die Hand.“",
-        "russian": "<b>Мультиудар</b> и «[summon]: добавляет в руку <b>\"Свечу Данте\"</b>».",
-        "portuguese": "<b>Golpe Múltiplo</b> 1 e [summon]: adiciona 1 <b>Vela de Dante</b> à sua mão.",
-        "chinese": "[multistrike] 1，'[summon]：将 1 张<b>但丁的蜡烛</b> 加入你的手牌。'"
+        "english": "[multistrike] [status0.power] and '[summon]: Add 1 <b>Dante's Candle</b> to your hand.'",
+        "french": "[multistrike] [status0.power] et '[summon]: Ajoute 1 <b>Bougie de Dante</b> à votre main.'",
+        "german": "[multistrike] [status0.power] und „[summon]: Nimm 1 <b>Dantes Kerze</b> auf die Hand.“",
+        "russian": "[multistrike] [status0.power] и «[summon]: добавляет в руку <b>\"Свечу Данте\"</b>».",
+        "portuguese": "[multistrike] [status0.power] e [summon]: adiciona 1 <b>Vela de Dante</b> à sua mão.",
+        "chinese": "[multistrike] [status0.power]，'[summon]：将 1 张<b>但丁的蜡烛</b> 加入你的手牌。'"
       },
       "status_effect_upgrades": [
         {
