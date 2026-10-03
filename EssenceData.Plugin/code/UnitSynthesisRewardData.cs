@@ -51,6 +51,7 @@ namespace EssenceData.code
                 DeckScreen.FilterCardStateDelegate? func = OnlyUnfusedMonstersWithEssences;
                 CardUpgradeData? upgrade = null;
                 CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis = true;
+                CardUI_UpdateTextContent_ShowSynthesisEffectPatch.DisableSynthesisButton = true;
                 if (i > 0)
                 {
                     CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis = false;

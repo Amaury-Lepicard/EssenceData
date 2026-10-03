@@ -53,6 +53,8 @@ class CardTooltipContainer_AddUpgradedCharacterTriggers_SynthesisTooltipsPatch
 static class CardUI_UpdateTextContent_ShowSynthesisEffectPatch
 {
     public static bool EnableShowingSynthesis = false;
+    public static bool DisableSynthesisButton = false;
+
     public static void Postfix(CardUI __instance, CardState cardState, CardFrameUI ____cardFrame, ContentTinter ___cardFrontTinter, TMP_Text ___filteredReasonLabel)
     {
         bool flag = cardState.CurrentDisabledReason == CardState.UpgradeDisabledReason.NONE;
@@ -174,7 +176,7 @@ static class UnitEssenceToggle
                 Create(__instance);
             }
 
-            bool flag = true;
+            bool flag = !CardUI_UpdateTextContent_ShowSynthesisEffectPatch.DisableSynthesisButton;
             if (__instance is DeckScreen screen)
             {
                 var mode = (DeckScreen.Mode)DeckScreen_Mode.GetValue(screen);
@@ -305,7 +307,11 @@ static class UnitEssenceToggle
     {
         static IEnumerable<MethodBase> TargetMethods() => Screens("Close", "Close", "Close");
 
-        static void Postfix() => CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis = false;
+        static void Postfix()
+        {
+            CardUI_UpdateTextContent_ShowSynthesisEffectPatch.EnableShowingSynthesis = false;
+            CardUI_UpdateTextContent_ShowSynthesisEffectPatch.DisableSynthesisButton = false;
+        }
     }
 }
 
