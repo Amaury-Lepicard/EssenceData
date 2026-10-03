@@ -30,3 +30,6 @@ If you wish to conduct Fusion a RewardData subclass is already defined and setup
 This is done via a dependency on Conductor and defining a map between unit <=> essence upgrade. This is a 1:1 mapping that is an essence upgrade is only associated with one character and one character has only 1 essence.
 
 Examples of how to define an essence are in the `json/essences` folder
+
+## Credits
+* Amaury-Lepicard for the patches to add the Toggle Unit essences button in various UI screens.
