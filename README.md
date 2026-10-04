@@ -3,7 +3,7 @@
 Data mod containing Essences for Units. This mod by itself does not surface the mechanic in-game.
 
 Currently the mod defines essences for the MT1 units, along with Dante, Shield and Spear Steward,
-and every MT2 unit except the champions and Juggernaut. A first batch was designed in the
+and every MT2 unit except the champions. A first batch was designed in the
 spreadsheet below (Banished, Lazarus League, Luna Coven, Pyreborne, Underlegion and the remaining
 clanless units); the rest carry the unit's own ability.
 
