@@ -10,12 +10,12 @@
     {
       "id": "MonsterPufferfleshSynthesis",
       "descriptions": {
-        "english": "'[summon]: Add 1 <b>Spiky Skin</b> to your hand.'",
-        "french": "'[summon]: Ajoute 1 <b>Peau épineuse</b> à votre main.'",
-        "german": "„[summon]: Nimm 1 <b>Stachelhaut</b> auf die Hand.“",
-        "russian": "«[summon]: добавляет в руку 1 <b>\"Колючка\"</b>».",
-        "portuguese": "[summon]: adiciona 1 <b>Pele Pontiaguda</b> à sua mão.",
-        "chinese": "'[summon]：将 1 张<b>尖刺皮肤</b> 加入你的手牌。'"
+        "english": "'[extinguish]: Add 1 <b>Spiky Skin</b> to your hand.'",
+        "french": "'[extinguish]: Ajoute 1 <b>Peau épineuse</b> à votre main.'",
+        "german": "„[extinguish]: Nimm 1 <b>Stachelhaut</b> auf die Hand.“",
+        "russian": "«[extinguish]: добавляет в руку 1 <b>\"Колючка\"</b>».",
+        "portuguese": "[extinguish]: adiciona 1 <b>Pele Pontiaguda</b> à sua mão.",
+        "chinese": "'[extinguish]：将 1 张<b>尖刺皮肤</b> 加入你的手牌。'"
       },
       "trigger_upgrades": [
         "@MonsterPufferfleshSynthesis.triggerUpgrades0"
@@ -44,7 +44,7 @@
         "portuguese": "Adiciona 1 <b>Pele Pontiaguda</b> à sua mão.",
         "chinese": "将 1 张<b>尖刺皮肤</b> 加入你的手牌。"
       },
-      "trigger": "on_spawn",
+      "trigger": "on_death",
       "effects": [
         "@MonsterPufferfleshSynthesis.triggerUpgrades0.effects0"
       ]

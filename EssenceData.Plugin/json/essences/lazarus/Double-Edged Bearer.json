@@ -10,12 +10,12 @@
     {
       "id": "MonsterDoubleEdgedBearerSynthesis",
       "descriptions": {
-        "english": "'[summon]: Add 1 <b>Double-Edged Arms</b> to your hand.'",
-        "french": "'[summon]: Ajoute 1 <b>Bras à doubles tranchants</b> à votre main.'",
-        "german": "„[summon]: Nimm 1 <b>Zweischneidige Waffen</b> auf die Hand.“",
-        "russian": "«[summon]: добавляет в руку 1 <b>\"Двуклешник\"</b>».",
-        "portuguese": "[summon]: adiciona 1 <b>Braços de Dois Gumes</b> à sua mão.",
-        "chinese": "'[summon]：将 1 张<b>双刃臂</b> 加入你的手牌。'"
+        "english": "'[extinguish]: Add 1 <b>Double-Edged Arms</b> to your hand.'",
+        "french": "'[extinguish]: Ajoute 1 <b>Bras à doubles tranchants</b> à votre main.'",
+        "german": "„[extinguish]: Nimm 1 <b>Zweischneidige Waffen</b> auf die Hand.“",
+        "russian": "«[extinguish]: добавляет в руку 1 <b>\"Двуклешник\"</b>».",
+        "portuguese": "[extinguish]: adiciona 1 <b>Braços de Dois Gumes</b> à sua mão.",
+        "chinese": "'[extinguish]：将 1 张<b>双刃臂</b> 加入你的手牌。'"
       },
       "trigger_upgrades": [
         "@MonsterDoubleEdgedBearerSynthesis.triggerUpgrades0"
@@ -44,7 +44,7 @@
         "portuguese": "Adiciona 1 <b>Braços de Dois Gumes</b> à sua mão.",
         "chinese": "将 1 张<b>双刃臂</b> 加入你的手牌。"
       },
-      "trigger": "on_spawn",
+      "trigger": "on_death",
       "effects": [
         "@MonsterDoubleEdgedBearerSynthesis.triggerUpgrades0.effects0"
       ]
